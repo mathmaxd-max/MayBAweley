@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { author } from '../data/author';
+import { press } from '../data/press';
+import { sources, getSourceByKey } from '../data/sources';
+
+// Get press items for links
+const interviews = press.items.filter(item => item.kind === 'Interview');
+---
+
+<BaseLayout
+  title={`Über die Autorin – ${author.name}`}
+  description={author.bio_short}
+>
+  <div class="bg-gradient-to-b from-neutral-light to-white py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none">
+        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-8">
+          Über die Autorin
+        </h1>
+        
+        <div class="mb-8">
+          <h2 class="text-2xl font-serif font-semibold text-primary mb-4">
+            {author.name}
+          </h2>
+          <p class="text-lg leading-relaxed text-text/90 mb-4">
+            {author.bio_short}
+          </p>
+          
+          {author.also_known_as.length > 0 && (
+            <div class="mb-4">
+              <p class="text-base text-text/80">
+                <strong>Auch bekannt als:</strong> {author.also_known_as.join(', ')}
+              </p>
+            </div>
+          )}
+          
+          <div class="mb-4">
+            <p class="text-base text-text/80">
+              <strong>Genres:</strong> {author.genres.join(', ')}
+            </p>
+          </div>
+        </div>
+        
+        {author.notes.length > 0 && (
+          <div class="mb-8 p-6 bg-neutral-light rounded-lg">
+            <h3 class="text-xl font-serif font-semibold text-primary mb-4">
+              Hintergrund
+            </h3>
+            <ul class="space-y-2 text-text/80">
+              {author.notes.map((note, index) => (
+                <li key={index} class="flex items-start">
+                  <span class="mr-2">•</span>
+                  <span>{note}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        
+        {interviews.length > 0 && (
+          <div class="mb-8">
+            <h3 class="text-2xl font-serif font-semibold text-primary mb-4">
+              Interviews & Presse
+            </h3>
+            <ul class="space-y-4">
+              {interviews.map((interview) => {
+                const source = getSourceByKey(interview.source_key);
+                return (
+                  <li class="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <h4 class="font-semibold text-lg mb-2">{interview.title}</h4>
+                    <p class="text-sm text-text/70 mb-2">
+                      {interview.outlet} – {new Date(interview.published).toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    </p>
+                    {source && (
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-primary hover:text-primary-dark transition-colors text-sm font-medium"
+                      >
+                        Interview lesen →
+                      </a>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</BaseLayout>

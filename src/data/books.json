@@ -1,0 +1,341 @@
+{
+  "as_of": "2026-01-22",
+  "books": [
+    {
+      "id": "puppenbraut",
+      "title": "Puppenbraut",
+      "type": "novel",
+      "series": {
+        "name": "FBI-Team (NYC)",
+        "index": 1
+      },
+      "release": {
+        "ebook_date": "2013-06-12"
+      },
+      "identifiers": {
+        "amazon_asin_ebook": "B00DDXHJSM",
+        "isbn13_print": "9783743118881"
+      },
+      "notes": [
+        "Frequently described as the breakthrough title in author/publisher bios (Top 10 claim).",
+        "Plot commonly described as involving a child abduction; confirm exact blurb with author."
+      ],
+      "social_proof": {
+        "lovelybooks": {
+          "stars": 3.7,
+          "ratings_count": 24,
+          "breakdown": {
+            "5": 9,
+            "4": 8,
+            "3": 2,
+            "2": 1,
+            "1": 4
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Puppenbraut-1086482554-w/",
+          "captured_on": "2026-01-22"
+        }
+      }
+    },
+    {
+      "id": "existenzlos",
+      "title": "Existenzlos",
+      "type": "novel",
+      "series": {
+        "name": "FBI-Team (NYC)",
+        "index": 2
+      },
+      "release": {
+        "ebook_date": null,
+        "print_date": null
+      },
+      "identifiers": {
+        "amazon_asin_ebook": "B00J0E656U",
+        "isbn13_print": "9783749483204"
+      },
+      "notes": [
+        "Print edition appears under the title 'Existenzloa' (BoD listing). Treat as the same work unless the author indicates otherwise."
+      ],
+      "social_proof": {
+        "lovelybooks": {
+          "stars": 4.1,
+          "ratings_count": 13,
+          "breakdown": {
+            "5": 5,
+            "4": 4,
+            "3": 4,
+            "2": 0,
+            "1": 0
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Existenzlos-1096381693-w/",
+          "captured_on": "2026-01-22"
+        }
+      }
+    },
+    {
+      "id": "angstheiler",
+      "title": "Der Angstheiler",
+      "type": "novel",
+      "series": {
+        "name": "FBI-Team (NYC)",
+        "index": 3
+      },
+      "release": {
+        "ebook_date": "2015-02-16"
+      },
+      "identifiers": {
+        "isbn13_print": "9783749483822"
+      },
+      "notes": [
+        "Included in the Skoutz-Award Midlist Crime 2016."
+      ],
+      "social_proof": {
+        "lovelybooks": {
+          "stars": 3.8,
+          "ratings_count": 13,
+          "breakdown": {
+            "5": 5,
+            "4": 4,
+            "3": 2,
+            "2": 1,
+            "1": 1
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Der-Angstheiler-1192054068-w/",
+          "captured_on": "2026-01-22"
+        }
+      }
+    },
+    {
+      "id": "lauf_sophie",
+      "title": "Lauf, Sophie",
+      "type": "novel",
+      "series": {
+        "name": "FBI-Team (NYC)",
+        "index": 4
+      },
+      "release": {
+        "ebook_date": "2016-04-26"
+      },
+      "identifiers": {
+        "isbn13_print": "9783749483976",
+        "isbn10_print": "3749483973"
+      },
+      "notes": [],
+      "social_proof": {
+        "lovelybooks": {
+          "stars": 4.2,
+          "ratings_count": 19,
+          "breakdown": {
+            "5": 10,
+            "4": 4,
+            "3": 4,
+            "2": 1,
+            "1": 0
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Lauf-Sophie-1237979988-w/",
+          "captured_on": "2026-01-22"
+        }
+      }
+    },
+    {
+      "id": "erloese_uns",
+      "title": "Erlöse uns",
+      "type": "novel",
+      "series": {
+        "name": "FBI-Team (NYC)",
+        "index": 5
+      },
+      "release": {
+        "ebook_date": "2017-04-01"
+      },
+      "identifiers": {
+        "amazon_asin_ebook": "B06XZS3GSK",
+        "isbn13_print": "9783749484447"
+      },
+      "notes": [
+        "Some listings describe the story as based on true events; confirm phrasing with author before publishing."
+      ],
+      "social_proof": {
+        "lovelybooks": {
+          "stars": 3.6,
+          "ratings_count": 5,
+          "breakdown": {
+            "5": 2,
+            "4": 0,
+            "3": 2,
+            "2": 1,
+            "1": 0
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Erl%C3%B6se-uns-1454358534-w/",
+          "captured_on": "2026-01-22"
+        }
+      }
+    },
+    {
+      "id": "erinnerung_aus_glas",
+      "title": "Erinnerung aus Glas",
+      "type": "novel",
+      "series": {
+        "name": "Standalone / experiment (per interview)",
+        "index": null
+      },
+      "release": {
+        "ebook_date": "2017-11-09",
+        "print_date": "2019-09-16",
+        "audiobook_date": "2024-02-09"
+      },
+      "identifiers": {
+        "amazon_asin_ebook": "B077BJK9JY",
+        "isbn13_print": "9783749485215"
+      },
+      "notes": [
+        "A Skoutz post (Dec 2017) refers to this as her 'sixth thriller' at that time; print republication is dated 2019."
+      ],
+      "social_proof": {
+        "lovelybooks": {
+          "stars": 4.8,
+          "ratings_count": 9,
+          "breakdown": {
+            "5": 8,
+            "4": 0,
+            "3": 1,
+            "2": 0,
+            "1": 0
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Erinnerung-aus-Glas-1506884424-w/",
+          "captured_on": "2026-01-22"
+        }
+      }
+    },
+    {
+      "id": "trau_ihr_nicht",
+      "title": "Trau. Ihr. Nicht.",
+      "type": "novel",
+      "series": {
+        "name": "Standalone",
+        "index": null
+      },
+      "release": {
+        "ebook_date": "2019-09-24"
+      },
+      "identifiers": {
+        "amazon_asin_ebook": "B07Y2DKGN1",
+        "isbn13_print": "9783749495894"
+      },
+      "credits": {
+        "co_author": "Nora Richter"
+      },
+      "notes": [],
+      "social_proof": {
+        "lovelybooks": {
+          "stars": 4.0,
+          "ratings_count": 1,
+          "breakdown": {
+            "5": 0,
+            "4": 1,
+            "3": 0,
+            "2": 0,
+            "1": 0
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Trau-Ihr-Nicht-Thriller-9632506722-w/",
+          "captured_on": "2026-01-22",
+          "notes": [
+            "LovelyBooks author page shows a higher count for this title; prefer the book page count captured here and re-check later."
+          ]
+        }
+      }
+    },
+    {
+      "id": "schmetterlingsatem",
+      "title": "Schmetterlingsatem",
+      "type": "short",
+      "series": null,
+      "release": {
+        "ebook_date": "2017-12-31"
+      },
+      "identifiers": {},
+      "notes": [
+        "Listed as a 'Kurzthriller' on LovelyBooks; also appears on BookRix."
+      ],
+      "social_proof": {
+        "lovelybooks": {
+          "stars": 1.8,
+          "ratings_count": 6,
+          "breakdown": {
+            "5": 0,
+            "4": 1,
+            "3": 0,
+            "2": 2,
+            "1": 3
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Schmetterlingsatem-Kurzthriller-1521377278-w/",
+          "captured_on": "2026-01-22",
+          "notes": [
+            "This score is low; consider omitting public display of ratings for this title."
+          ]
+        }
+      }
+    },
+    {
+      "id": "love_bitter_love",
+      "title": "Love, Bitter Love",
+      "type": "short",
+      "series": null,
+      "release": {
+        "ebook_date": "2018-01-31"
+      },
+      "identifiers": {},
+      "notes": [
+        "Listed as a 'Kurzthriller' on LovelyBooks."
+      ],
+      "social_proof": {
+        "lovelybooks": {
+          "stars": 3.7,
+          "ratings_count": 3,
+          "breakdown": {
+            "5": 1,
+            "4": 0,
+            "3": 2,
+            "2": 0,
+            "1": 0
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Love-Bitter-Love-Kurzthriller-1533109331-w/",
+          "captured_on": "2026-01-22"
+        }
+      }
+    },
+    {
+      "id": "schrei_doch",
+      "title": "Schrei doch! Thriller Kurzgeschichten (Sammelband)",
+      "type": "anthology",
+      "credits": {
+        "contributor": "May B. Aweley"
+      },
+      "release": {
+        "ebook_date": null
+      },
+      "identifiers": {
+        "amazon_asin_ebook": "B08545FWW4"
+      },
+      "notes": [
+        "Anthology listing indicates many contributing authors; verify contribution title/section with the editor/publisher."
+      ]
+    },
+    {
+      "id": "kurze_geschichten_zwischendurch",
+      "title": "Kurze Geschichten für Zwischendurch",
+      "type": "anthology",
+      "credits": {
+        "contributor": "May B. Aweley"
+      },
+      "release": {
+        "ebook_date": null
+      },
+      "identifiers": {
+        "amazon_asin_ebook": "B08517WHTX"
+      },
+      "notes": [
+        "Anthology listing indicates many contributing authors; verify details with the editor/publisher."
+      ]
+    }
+  ]
+}

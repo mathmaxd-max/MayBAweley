@@ -1,0 +1,33 @@
+---
+import { author } from '../data/author';
+---
+
+<footer class="bg-neutral-medium text-text mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-lg font-serif font-semibold text-primary mb-4">{author.name}</h3>
+        <p class="text-sm text-text/80">{author.bio_short}</p>
+      </div>
+      <div>
+        <h4 class="text-sm font-semibold mb-4">Navigation</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/" class="hover:text-primary transition-colors">Bücher</a></li>
+          <li><a href="/ueber-die-autorin" class="hover:text-primary transition-colors">Über die Autorin</a></li>
+          <li><a href="/presse-auszeichnungen" class="hover:text-primary transition-colors">Presse & Auszeichnungen</a></li>
+          <li><a href="/kontakt" class="hover:text-primary transition-colors">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-sm font-semibold mb-4">Rechtliches</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/impressum" class="hover:text-primary transition-colors">Impressum</a></li>
+          <li><a href="/datenschutz" class="hover:text-primary transition-colors">Datenschutzerklärung</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 pt-8 border-t border-neutral-dark/20 text-center text-sm text-text/60">
+      <p>&copy; {new Date().getFullYear()} {author.name}. Alle Rechte vorbehalten.</p>
+    </div>
+  </div>
+</footer>

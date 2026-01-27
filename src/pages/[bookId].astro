@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BookDetail from '../components/BookDetail.astro';
+import RatingBadge from '../components/RatingBadge.astro';
+import { getBookById, shouldShowRating } from '../data/books';
+import { getAmazonUrl } from '../utils/amazon';
+import { formatDate } from '../utils/formatting';
+import { author } from '../data/author';
+
+export async function getStaticPaths() {
+  const { books } = await import('../data/books');
+  return books.books.map((book) => ({
+    params: { bookId: book.id },
+    props: { book },
+  }));
+}
+
+interface Props {
+  book: import('../data/types').Book;
+}
+
+const { book } = Astro.props;
+const amazonUrl = getAmazonUrl(book);
+const releaseDate = book.release.ebook_date || book.release.print_date;
+const coverImage = `/images/covers/${book.id}.jpg`;
+
+// Generate structured data for SEO
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: book.title,
+  author: {
+    '@type': 'Person',
+    name: author.name,
+  },
+  ...(book.series && {
+    isPartOf: {
+      '@type': 'BookSeries',
+      name: book.series.name,
+    },
+  }),
+  ...(releaseDate && {
+    datePublished: releaseDate,
+  }),
+  ...(book.identifiers.isbn13_print && {
+    isbn: book.identifiers.isbn13_print,
+  }),
+  ...(amazonUrl && {
+    offers: {
+      '@type': 'Offer',
+      url: amazonUrl,
+      availability: 'https://schema.org/InStock',
+    },
+  }),
+};
+
+const title = `${book.title} – Thriller von ${author.name}`;
+const description = book.notes.length > 0 
+  ? book.notes[0].substring(0, 160)
+  : `${book.title} von ${author.name}. ${book.series ? `Teil der ${book.series.name}-Reihe.` : ''} Jetzt bei Amazon erhältlich.`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={coverImage}
+  type="book"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  
+  <div class="bg-gradient-to-b from-neutral-light to-white py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div class="md:col-span-1">
+          <img
+            src={coverImage}
+            alt={`Cover: ${book.title}`}
+            class="w-full rounded-lg shadow-xl"
+            loading="eager"
+            onerror="this.src='/images/covers/placeholder.jpg'"
+          />
+        </div>
+        <div class="md:col-span-2">
+          <h1 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+            {book.title}
+          </h1>
+          {book.series && (
+            <p class="text-lg text-text/70 mb-2">
+              {book.series.name}
+              {book.series.index !== null && ` – Band ${book.series.index}`}
+            </p>
+          )}
+          {releaseDate && (
+            <p class="text-sm text-text/60 mb-4">
+              Erschienen: {formatDate(releaseDate)}
+            </p>
+          )}
+          
+          <RatingBadge book={book} />
+          
+          {amazonUrl && (
+            <div class="mt-6">
+              <a
+                href={amazonUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary inline-block"
+              >
+                Bei Amazon kaufen
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+      
+      <div class="prose prose-lg max-w-none mb-8">
+        <h2 class="text-2xl font-serif font-semibold text-primary mb-4">Über das Buch</h2>
+        <p class="text-xl font-serif italic text-text/80 mb-4">
+          {/* Placeholder for hook line */}
+          Ein spannender Thriller, der Sie von der ersten Seite an fesselt.
+        </p>
+        <div class="text-base leading-relaxed text-text/90 space-y-4">
+          {/* Placeholder for extended description */}
+          {book.notes.map((note, index) => (
+            <p key={index}>{note}</p>
+          ))}
+        </div>
+      </div>
+      
+      {book.series && (
+        <div class="p-6 bg-neutral-light rounded-lg mb-8">
+          <h3 class="text-lg font-serif font-semibold text-primary mb-2">Reihenfolge</h3>
+          <p class="text-sm text-text/70">
+            Dieses Buch ist Teil der <strong>{book.series.name}</strong>-Reihe.
+            {book.series.index !== null && ` Es ist Band ${book.series.index} der Serie.`}
+            Die Bücher können unabhängig voneinander gelesen werden, sind aber in der Veröffentlichungsreihenfolge am besten zu genießen.
+          </p>
+        </div>
+      )}
+      
+      <div class="border-t border-neutral-medium pt-8">
+        <a href="/" class="text-primary hover:text-primary-dark transition-colors">
+          ← Zurück zur Übersicht
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

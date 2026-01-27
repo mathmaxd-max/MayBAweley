@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BookSelector from '../components/BookSelector.astro';
+import BookDetail from '../components/BookDetail.astro';
+import { books, getBooksSortedByRatingCount } from '../data/books';
+import { author } from '../data/author';
+
+// Get novels only for display
+const novels = books.books.filter(book => book.type === 'novel');
+
+// Default to most popular book (highest rating count) or "Lauf, Sophie" (4.2 stars, 19 ratings)
+const defaultBook = getBooksSortedByRatingCount().find(b => b.type === 'novel') || novels[0];
+
+// Generate structured data for homepage
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: author.name,
+  jobTitle: 'Autorin',
+  description: author.bio_short,
+  genre: author.genres,
+  sameAs: [], // To be filled with social media links
+};
+---
+
+<BaseLayout
+  title={`${author.name} – Thriller und Psychothriller`}
+  description={author.bio_short}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  
+  <div class="bg-gradient-to-b from-neutral-light to-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
+          {author.name}
+        </h1>
+        <p class="text-xl text-text/80 max-w-2xl mx-auto">
+          {author.bio_short}
+        </p>
+      </div>
+      
+      <div class="mb-8">
+        <h2 class="text-2xl font-serif font-semibold text-primary mb-6 text-center">
+          Meine Bücher
+        </h2>
+        <BookSelector books={novels} selectedBookId={defaultBook.id} />
+      </div>
+      
+      <div id="book-detail-container">
+        <BookDetail book={defaultBook} />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ books: novels, defaultBookId: defaultBook.id }}>
+  interface Book {
+    id: string;
+    title: string;
+  }
+  
+  window.addEventListener('book-selected', (event: CustomEvent<{ bookId: string }>) => {
+    const { bookId } = event.detail;
+    // Navigate to book page
+    window.location.href = `/${bookId}`;
+  });
+</script>

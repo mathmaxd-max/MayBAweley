@@ -1,0 +1,40 @@
+---
+import type { Book } from '../data/types';
+
+interface Props {
+  book: Book;
+  isActive?: boolean;
+}
+
+const { book, isActive = false } = Astro.props;
+const coverPath = `/images/covers/${book.id}.jpg`;
+---
+
+<button
+  class={`book-card flex-shrink-0 w-32 md:w-40 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg ${
+    isActive ? 'scale-105 shadow-xl ring-2 ring-primary' : 'hover:scale-102 shadow-md'
+  }`}
+  data-book-id={book.id}
+  aria-label={`${book.title} auswählen`}
+  aria-pressed={isActive}
+>
+  <div class="card overflow-hidden">
+    <img
+      src={coverPath}
+      alt={`Cover: ${book.title}`}
+      class="w-full h-48 md:h-56 object-cover"
+      loading="lazy"
+      onerror="this.src='/images/covers/placeholder.jpg'"
+    />
+    <div class="p-2">
+      <h3 class="text-xs md:text-sm font-serif font-semibold text-text line-clamp-2 text-center">
+        {book.title}
+      </h3>
+      {book.series && book.series.index !== null && (
+        <p class="text-xs text-text/60 text-center mt-1">
+          {book.series.name} #{book.series.index}
+        </p>
+      )}
+    </div>
+  </div>
+</button>

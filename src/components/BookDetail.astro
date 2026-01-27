@@ -1,0 +1,75 @@
+---
+import type { Book } from '../data/types';
+import { getAmazonUrl } from '../utils/amazon';
+import { formatDate } from '../utils/formatting';
+import RatingBadge from './RatingBadge.astro';
+
+interface Props {
+  book: Book;
+}
+
+const { book } = Astro.props;
+const amazonUrl = getAmazonUrl(book);
+const releaseDate = book.release.ebook_date || book.release.print_date;
+---
+
+<div class="book-detail max-w-3xl mx-auto p-6 md:p-8">
+  <div class="mb-6">
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-2">
+      {book.title}
+    </h1>
+    {book.series && (
+      <p class="text-lg text-text/70 mb-2">
+        {book.series.name}
+        {book.series.index !== null && ` – Band ${book.series.index}`}
+      </p>
+    )}
+    {releaseDate && (
+      <p class="text-sm text-text/60">
+        Erschienen: {formatDate(releaseDate)}
+      </p>
+    )}
+  </div>
+  
+  <div class="prose prose-lg max-w-none mb-6">
+    <p class="text-xl font-serif italic text-text/80 mb-4">
+      {/* Placeholder for hook line - to be filled with actual content */}
+      Ein spannender Thriller, der Sie von der ersten Seite an fesselt.
+    </p>
+    <p class="text-base leading-relaxed text-text/90 mb-4">
+      {/* Placeholder for teaser - to be filled with actual content */}
+      {book.notes.length > 0 && book.notes[0]}
+    </p>
+  </div>
+  
+  <RatingBadge book={book} />
+  
+  <div class="flex flex-col sm:flex-row gap-4 mt-8">
+    {amazonUrl && (
+      <a
+        href={amazonUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary text-center"
+      >
+        Bei Amazon kaufen
+      </a>
+    )}
+    <a
+      href={`/${book.id}`}
+      class="btn-secondary text-center"
+    >
+      Mehr Details
+    </a>
+  </div>
+  
+  {book.series && (
+    <div class="mt-6 p-4 bg-neutral-light rounded-lg">
+      <p class="text-sm text-text/70">
+        <strong>Reihenfolge:</strong> Dieses Buch ist Teil der {book.series.name}-Reihe.
+        {book.series.index !== null && ` Es ist Band ${book.series.index} der Serie.`}
+        Die Bücher können unabhängig voneinander gelesen werden, sind aber in der Veröffentlichungsreihenfolge am besten zu genießen.
+      </p>
+    </div>
+  )}
+</div>

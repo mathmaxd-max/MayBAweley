@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { recognition } from '../data/recognition';
+import { press } from '../data/press';
+import { getSourceByKey } from '../data/sources';
+import { formatDate } from '../utils/formatting';
+
+const awards = recognition.items.filter(item => item.kind.includes('Award'));
+const pressMentions = recognition.items.filter(item => item.kind === 'Press mention');
+const features = press.items;
+---
+
+<BaseLayout
+  title="Presse & Auszeichnungen – May B. Aweley"
+  description="Auszeichnungen, Presseberichte und Interviews mit May B. Aweley"
+>
+  <div class="bg-gradient-to-b from-neutral-light to-white py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-12 text-center">
+        Presse & Auszeichnungen
+      </h1>
+      
+      {awards.length > 0 && (
+        <section class="mb-12">
+          <h2 class="text-3xl font-serif font-semibold text-primary mb-6">
+            Auszeichnungen
+          </h2>
+          <div class="space-y-6">
+            {awards.map((award) => {
+              const source = getSourceByKey(award.source_key);
+              return (
+                <div class="card p-6">
+                  <div class="flex items-start justify-between mb-2">
+                    <h3 class="text-xl font-serif font-semibold text-primary">
+                      {award.title}
+                    </h3>
+                    <span class="text-sm text-text/60 whitespace-nowrap ml-4">
+                      {formatDate(award.date)}
+                    </span>
+                  </div>
+                  <p class="text-text/80 mb-3">{award.details}</p>
+                  {source && (
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-primary hover:text-primary-dark transition-colors text-sm font-medium"
+                    >
+                      Mehr erfahren →
+                    </a>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+      
+      {pressMentions.length > 0 && (
+        <section class="mb-12">
+          <h2 class="text-3xl font-serif font-semibold text-primary mb-6">
+            Presseberichte
+          </h2>
+          <div class="space-y-6">
+            {pressMentions.map((mention) => {
+              const source = getSourceByKey(mention.source_key);
+              return (
+                <div class="card p-6">
+                  <div class="flex items-start justify-between mb-2">
+                    <h3 class="text-xl font-serif font-semibold text-primary">
+                      {mention.title}
+                    </h3>
+                    <span class="text-sm text-text/60 whitespace-nowrap ml-4">
+                      {formatDate(mention.date)}
+                    </span>
+                  </div>
+                  <p class="text-text/80 mb-3">{mention.details}</p>
+                  {source && (
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-primary hover:text-primary-dark transition-colors text-sm font-medium"
+                    >
+                      Artikel lesen →
+                    </a>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+      
+      {features.length > 0 && (
+        <section class="mb-12">
+          <h2 class="text-3xl font-serif font-semibold text-primary mb-6">
+            Interviews & Features
+          </h2>
+          <div class="space-y-6">
+            {features.map((feature) => {
+              const source = getSourceByKey(feature.source_key);
+              return (
+                <div class="card p-6">
+                  <div class="flex items-start justify-between mb-2">
+                    <div>
+                      <h3 class="text-xl font-serif font-semibold text-primary">
+                        {feature.title}
+                      </h3>
+                      <p class="text-sm text-text/70 mt-1">
+                        {feature.outlet}
+                      </p>
+                    </div>
+                    <span class="text-sm text-text/60 whitespace-nowrap ml-4">
+                      {formatDate(feature.published)}
+                    </span>
+                  </div>
+                  {feature.highlights.length > 0 && (
+                    <ul class="list-disc list-inside space-y-1 text-text/80 mb-3 ml-4">
+                      {feature.highlights.map((highlight, index) => (
+                        <li key={index} class="text-sm">{highlight}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {source && (
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-primary hover:text-primary-dark transition-colors text-sm font-medium"
+                    >
+                      {feature.kind === 'Interview' ? 'Interview lesen' : 'Artikel lesen'} →
+                    </a>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+      
+      <div class="mt-12 p-6 bg-neutral-light rounded-lg text-center">
+        <p class="text-text/80 mb-4">
+          Für weitere Informationen oder Interviewanfragen kontaktieren Sie bitte über die Social Media Kanäle.
+        </p>
+        <a href="/kontakt" class="btn-primary inline-block">
+          Kontakt aufnehmen
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

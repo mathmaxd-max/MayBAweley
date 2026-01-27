@@ -1,0 +1,109 @@
+---
+import type { Book } from '../data/types';
+import BookCard from './BookCard.astro';
+
+interface Props {
+  books: Book[];
+  selectedBookId?: string;
+}
+
+const { books, selectedBookId } = Astro.props;
+---
+
+<div class="book-selector-container">
+  <div
+    class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide scroll-smooth"
+    id="book-selector"
+    role="list"
+    aria-label="Bücher auswählen"
+    tabindex="0"
+  >
+    {books.map((book) => (
+      <div role="listitem" class="flex-shrink-0">
+        <BookCard book={book} isActive={book.id === selectedBookId} />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  const selector = document.getElementById('book-selector');
+  if (!selector) {
+    // Exit early if selector not found
+  } else {
+  
+  let selectedIndex = 0;
+  const cards = selector.querySelectorAll('.book-card');
+  
+  // Keyboard navigation
+  selector.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      selectedIndex = Math.max(0, selectedIndex - 1);
+      updateSelection();
+      scrollToCard(selectedIndex);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      selectedIndex = Math.min(cards.length - 1, selectedIndex + 1);
+      updateSelection();
+      scrollToCard(selectedIndex);
+    } else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const card = cards[selectedIndex] as HTMLElement;
+      card.click();
+    }
+  });
+  
+  // Click handler
+  cards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      selectedIndex = index;
+      updateSelection();
+      const bookId = card.getAttribute('data-book-id');
+      if (bookId) {
+        window.dispatchEvent(new CustomEvent('book-selected', { detail: { bookId } }));
+      }
+    });
+  });
+  
+  function updateSelection() {
+    cards.forEach((card, index) => {
+      const isActive = index === selectedIndex;
+      card.setAttribute('aria-pressed', String(isActive));
+      if (isActive) {
+        card.classList.add('scale-105', 'shadow-xl', 'ring-2', 'ring-primary');
+        card.classList.remove('scale-102', 'shadow-md');
+      } else {
+        card.classList.remove('scale-105', 'shadow-xl', 'ring-2', 'ring-primary');
+        card.classList.add('scale-102', 'shadow-md');
+      }
+    });
+  }
+  
+  function scrollToCard(index: number) {
+    const card = cards[index] as HTMLElement;
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }
+  
+    // Initialize selection
+    const initialSelected = Array.from(cards).findIndex(card => 
+      card.getAttribute('aria-pressed') === 'true'
+    );
+    if (initialSelected >= 0) {
+      selectedIndex = initialSelected;
+      updateSelection();
+    }
+  }
+</script>

@@ -1,0 +1,33 @@
+---
+import type { Book } from '../data/types';
+import { shouldShowRating } from '../data/books';
+import { formatRating, formatDate } from '../utils/formatting';
+
+interface Props {
+  book: Book;
+}
+
+const { book } = Astro.props;
+const rating = book.social_proof?.lovelybooks;
+
+if (!rating || !shouldShowRating(book)) {
+  return null;
+}
+---
+
+<div class="mt-4">
+  <a
+    href={rating.source_url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-flex items-center gap-2 text-sm text-text/80 hover:text-primary transition-colors"
+  >
+    <span class="font-semibold">LovelyBooks:</span>
+    <span class="flex items-center gap-1">
+      <span>{formatRating(rating.stars)}</span>
+      <span class="text-accent">★</span>
+    </span>
+    <span>({rating.ratings_count} Bewertungen)</span>
+    <span class="text-text/60">— Stand: {formatDate(rating.captured_on)}</span>
+  </a>
+</div>

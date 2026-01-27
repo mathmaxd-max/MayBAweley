@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { author } from '../data/author';
+---
+
+<BaseLayout
+  title="Kontakt – May B. Aweley"
+  description="Kontaktieren Sie May B. Aweley über Social Media"
+>
+  <div class="bg-gradient-to-b from-neutral-light to-white py-12">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-8 text-center">
+        Kontakt
+      </h1>
+      
+      <div class="card p-8 text-center">
+        <p class="text-lg text-text/90 mb-6">
+          Für Anfragen, Interviewanfragen oder einfach nur zum Austausch können Sie {author.name} über die Social Media Kanäle erreichen.
+        </p>
+        
+        <div class="space-y-4">
+          <p class="text-text/70">
+            {/* Placeholder for social media links - to be updated with actual links */}
+            Social Media Links werden hier angezeigt, sobald verfügbar.
+          </p>
+          
+          <div class="mt-8 p-4 bg-neutral-light rounded-lg">
+            <p class="text-sm text-text/70">
+              <strong>Hinweis:</strong> Aufgrund der Verwendung eines Pseudonyms werden persönliche Kontaktdaten nicht öffentlich gemacht. 
+              Bitte nutzen Sie die Social Media Kanäle für die Kommunikation.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8 text-center">
+        <a href="/" class="text-primary hover:text-primary-dark transition-colors">
+          ← Zurück zur Startseite
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

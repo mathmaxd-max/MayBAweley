@@ -1,0 +1,226 @@
+{
+  "as_of": "2026-01-22",
+  "sources": [
+    {
+      "key": "lovelybooks_author",
+      "title": "LovelyBooks author page: May B. Aweley",
+      "url": "https://www.lovelybooks.de/autor/May-B.-Aweley/",
+      "used_for": [
+        "publication dates for multiple titles",
+        "bio incl. reading order for series",
+        "short thriller titles"
+      ]
+    },
+    {
+      "key": "bod_puppenbraut",
+      "title": "BoD listing: Puppenbraut",
+      "url": "https://buchshop.bod.de/puppenbraut-may-b-aweley-9783743118881",
+      "used_for": [
+        "print ISBN"
+      ]
+    },
+    {
+      "key": "bod_existenzloa",
+      "title": "BoD listing: Existenzloa",
+      "url": "https://buchshop.bod.de/existenzloa-may-b-aweley-9783749483204",
+      "used_for": [
+        "print title variant + ISBN",
+        "bio claim about Top 10 breakthrough"
+      ]
+    },
+    {
+      "key": "amazon_existenzlos",
+      "title": "Amazon listing: Existenzlos (eBook)",
+      "url": "https://www.amazon.de/-/en/May-B-Aweley-ebook/dp/B00J0E656U",
+      "used_for": [
+        "ASIN for eBook"
+      ]
+    },
+    {
+      "key": "amazon_erinnerung_ebook",
+      "title": "Amazon listing: Erinnerung aus Glas (eBook)",
+      "url": "https://www.amazon.de/Erinnerung-aus-Glas-May-Aweley-ebook/dp/B077BJK9JY",
+      "used_for": [
+        "ASIN + release month reference"
+      ]
+    },
+    {
+      "key": "amazon_erinnerung_print",
+      "title": "Amazon listing: Erinnerung aus Glas (print, BoD)",
+      "url": "https://www.amazon.de/Erinnerung-aus-Glas-May-Aweley/dp/3749485216",
+      "used_for": [
+        "print publication date"
+      ]
+    },
+    {
+      "key": "amazon_audible_erinnerung",
+      "title": "Amazon Audible listing: Erinnerung aus Glas (audiobook download)",
+      "url": "https://www.amazon.de/Audible-Erinnerung-aus-Glas/dp/B0CTCP2CCN",
+      "used_for": [
+        "audiobook publication date"
+      ]
+    },
+    {
+      "key": "amazon_trau",
+      "title": "Amazon listing: Trau. Ihr. Nicht. (eBook)",
+      "url": "https://www.amazon.de/Trau-Ihr-Nicht-Thriller-Aweley-ebook/dp/B07Y2DKGN1",
+      "used_for": [
+        "ASIN for eBook"
+      ]
+    },
+    {
+      "key": "amazon_erloese",
+      "title": "Amazon listing: Erlöse uns (eBook)",
+      "url": "https://www.amazon.de/Erl%C3%B6se-uns-Thriller-May-Aweley-ebook/dp/B06XZS3GSK",
+      "used_for": [
+        "ASIN for eBook"
+      ]
+    },
+    {
+      "key": "skoutz_midlist_crime_2016",
+      "title": "Skoutz: Midlist Crime 2016",
+      "url": "https://skoutz.de/skoutz-award-midlist-crime-2016/",
+      "used_for": [
+        "Midlist inclusion of Der Angstheiler"
+      ]
+    },
+    {
+      "key": "skoutz_jury_2018",
+      "title": "Skoutz: Skoutz-Award 2018 – Jury 2018",
+      "url": "https://skoutz.de/skoutz-award-2018-das-ist-die-jury-2018/",
+      "used_for": [
+        "Juror role for Crime category"
+      ]
+    },
+    {
+      "key": "skoutz_jahresendspurt_2017",
+      "title": "Skoutz: Jahresendspurt 2017 (Türchen May B. Aweley)",
+      "url": "https://skoutz.de/skoutz-jahresendspurt-2017-zweites-tuerchen-von-may-b-aweley/",
+      "used_for": [
+        "feature mention and book milestone claim"
+      ]
+    },
+    {
+      "key": "regionalheute_interview_2017",
+      "title": "regionalHeute: Wolfenbüttels Thriller-Autorin May B. Aweley im Interview",
+      "url": "https://regionalheute.de/wolfenbuettel/wolfenbuettels-thriller-autorin-may-b-aweley-im-interview/",
+      "used_for": [
+        "interview details + date",
+        "mentions series titles + writing context"
+      ]
+    },
+    {
+      "key": "richteronweb_interview_2019",
+      "title": "Lesebuch (Richter on Web): Interview mit May B. Aweley",
+      "url": "https://www.richteronweb.de/?p=12726",
+      "used_for": [
+        "interview details + date",
+        "project notes"
+      ]
+    },
+    {
+      "key": "bild_bestseller_2016",
+      "title": "BILD: Bestseller-Liste (article includes author mention)",
+      "url": "https://www.bild.de/lifestyle/bestseller/buecher/bestseller-buecher-liste-belletristik-sachbuecher-46556950.bild.html",
+      "used_for": [
+        "press mention"
+      ]
+    },
+    {
+      "key": "readerkanone_pseudonyms",
+      "title": "Leserkanone: May B. Aweley author page (lists pseudonyms and anthology appearances)",
+      "url": "https://www.leserkanone.de/autoren/may-b-aweley",
+      "used_for": [
+        "pseudonyms + anthology mentions"
+      ]
+    },
+    {
+      "key": "lovelybooks_puppenbraut",
+      "title": "LovelyBooks: Puppenbraut",
+      "url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Puppenbraut-1086482554-w/",
+      "used_for": [
+        "ratings snapshot (stars/count/breakdown)"
+      ]
+    },
+    {
+      "key": "lovelybooks_existenzlos",
+      "title": "LovelyBooks: Existenzlos",
+      "url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Existenzlos-1096381693-w/",
+      "used_for": [
+        "ratings snapshot (stars/count/breakdown)"
+      ]
+    },
+    {
+      "key": "lovelybooks_angstheiler",
+      "title": "LovelyBooks: Der Angstheiler",
+      "url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Der-Angstheiler-1192054068-w/",
+      "used_for": [
+        "ratings snapshot (stars/count/breakdown)"
+      ]
+    },
+    {
+      "key": "lovelybooks_lauf_sophie",
+      "title": "LovelyBooks: Lauf, Sophie",
+      "url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Lauf-Sophie-1237979988-w/",
+      "used_for": [
+        "ratings snapshot (stars/count/breakdown)"
+      ]
+    },
+    {
+      "key": "lovelybooks_erloese_uns",
+      "title": "LovelyBooks: Erlöse uns",
+      "url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Erl%C3%B6se-uns-1454358534-w/",
+      "used_for": [
+        "ratings snapshot (stars/count/breakdown)"
+      ]
+    },
+    {
+      "key": "lovelybooks_erinnerung_aus_glas",
+      "title": "LovelyBooks: Erinnerung aus Glas",
+      "url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Erinnerung-aus-Glas-1506884424-w/",
+      "used_for": [
+        "ratings snapshot (stars/count/breakdown)"
+      ]
+    },
+    {
+      "key": "lovelybooks_trau_ihr_nicht",
+      "title": "LovelyBooks: Trau. Ihr. Nicht.",
+      "url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Trau-Ihr-Nicht-Thriller-9632506722-w/",
+      "used_for": [
+        "ratings snapshot (stars/count/breakdown)"
+      ]
+    },
+    {
+      "key": "lovelybooks_love_bitter_love",
+      "title": "LovelyBooks: Love, Bitter Love (Kurzthriller)",
+      "url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Love-Bitter-Love-Kurzthriller-1533109331-w/",
+      "used_for": [
+        "ratings snapshot (stars/count/breakdown)"
+      ]
+    },
+    {
+      "key": "lovelybooks_schmetterlingsatem",
+      "title": "LovelyBooks: Schmetterlingsatem (Kurzthriller)",
+      "url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Schmetterlingsatem-Kurzthriller-1521377278-w/",
+      "used_for": [
+        "ratings snapshot (stars/count/breakdown)"
+      ]
+    },
+    {
+      "key": "skoutz_angstheiler_feature",
+      "title": "Skoutz: Der Angstheiler – Thriller von May B. Aweley",
+      "url": "https://skoutz.de/1325/",
+      "used_for": [
+        "book feature + award context + summary quote (not reproduced)"
+      ]
+    },
+    {
+      "key": "skoutz_visit_may",
+      "title": "Skoutz: zu Besuch bei May B. Aweley",
+      "url": "https://skoutz.de/zu-besuch-bei-may-b-aweley/",
+      "used_for": [
+        "interview/feature + 'Skoutz meint' exists (not reproduced)"
+      ]
+    }
+  ]
+}

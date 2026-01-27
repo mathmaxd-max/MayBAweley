@@ -1,0 +1,215 @@
+{
+  "as_of": "2026-01-22",
+  "principles": [
+    "Avoid republishing user-generated review text without explicit written permission from the reviewer.",
+    "Prefer verifiable facts (award selections, juror roles, 'as seen on' features) and aggregate metrics.",
+    "If you show third-party platform metrics (stars/counts), treat them as time-stamped snapshots and link back to the source."
+  ],
+  "platform_metrics": {
+    "lovelybooks": {
+      "author": {
+        "stars": 3.9,
+        "ratings_count": 99,
+        "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/",
+        "captured_on": "2026-01-22"
+      },
+      "books": {
+        "puppenbraut": {
+          "stars": 3.7,
+          "ratings_count": 24,
+          "breakdown": {
+            "5": 9,
+            "4": 8,
+            "3": 2,
+            "2": 1,
+            "1": 4
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Puppenbraut-1086482554-w/",
+          "captured_on": "2026-01-22"
+        },
+        "existenzlos": {
+          "stars": 4.1,
+          "ratings_count": 13,
+          "breakdown": {
+            "5": 5,
+            "4": 4,
+            "3": 4,
+            "2": 0,
+            "1": 0
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Existenzlos-1096381693-w/",
+          "captured_on": "2026-01-22"
+        },
+        "angstheiler": {
+          "stars": 3.8,
+          "ratings_count": 13,
+          "breakdown": {
+            "5": 5,
+            "4": 4,
+            "3": 2,
+            "2": 1,
+            "1": 1
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Der-Angstheiler-1192054068-w/",
+          "captured_on": "2026-01-22"
+        },
+        "lauf_sophie": {
+          "stars": 4.2,
+          "ratings_count": 19,
+          "breakdown": {
+            "5": 10,
+            "4": 4,
+            "3": 4,
+            "2": 1,
+            "1": 0
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Lauf-Sophie-1237979988-w/",
+          "captured_on": "2026-01-22"
+        },
+        "erloese_uns": {
+          "stars": 3.6,
+          "ratings_count": 5,
+          "breakdown": {
+            "5": 2,
+            "4": 0,
+            "3": 2,
+            "2": 1,
+            "1": 0
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Erl%C3%B6se-uns-1454358534-w/",
+          "captured_on": "2026-01-22"
+        },
+        "erinnerung_aus_glas": {
+          "stars": 4.8,
+          "ratings_count": 9,
+          "breakdown": {
+            "5": 8,
+            "4": 0,
+            "3": 1,
+            "2": 0,
+            "1": 0
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Erinnerung-aus-Glas-1506884424-w/",
+          "captured_on": "2026-01-22"
+        },
+        "trau_ihr_nicht": {
+          "stars": 4.0,
+          "ratings_count": 1,
+          "breakdown": {
+            "5": 0,
+            "4": 1,
+            "3": 0,
+            "2": 0,
+            "1": 0
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Trau-Ihr-Nicht-Thriller-9632506722-w/",
+          "captured_on": "2026-01-22",
+          "notes": [
+            "LovelyBooks author page shows a higher count for this title; prefer the book page count captured here and re-check later."
+          ]
+        },
+        "love_bitter_love": {
+          "stars": 3.7,
+          "ratings_count": 3,
+          "breakdown": {
+            "5": 1,
+            "4": 0,
+            "3": 2,
+            "2": 0,
+            "1": 0
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Love-Bitter-Love-Kurzthriller-1533109331-w/",
+          "captured_on": "2026-01-22"
+        },
+        "schmetterlingsatem": {
+          "stars": 1.8,
+          "ratings_count": 6,
+          "breakdown": {
+            "5": 0,
+            "4": 1,
+            "3": 0,
+            "2": 2,
+            "1": 3
+          },
+          "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Schmetterlingsatem-Kurzthriller-1521377278-w/",
+          "captured_on": "2026-01-22",
+          "notes": [
+            "This score is low; consider omitting public display of ratings for this title."
+          ]
+        }
+      }
+    }
+  },
+  "recognition_highlights": [
+    {
+      "kind": "Skoutz-Award",
+      "title": "Midlist Crime 2016 (selected title: Der Angstheiler)",
+      "date": "2016-03-23",
+      "details": "‘Der Angstheiler’ was selected into the Midlist Crime 2016 by juror Andreas Adlon.",
+      "source_key": "skoutz_midlist_crime_2016"
+    },
+    {
+      "kind": "Skoutz-Award",
+      "title": "Crime category juror (Jury 2018)",
+      "date": "2018-02-01",
+      "details": "May B. Aweley served as the Skoutz-Award 2018 juror for the Crime category.",
+      "source_key": "skoutz_jury_2018"
+    },
+    {
+      "kind": "Press mention",
+      "title": "BILD Bestseller-Liste (author mention)",
+      "date": "2016-08-22",
+      "details": "BILD’s bestseller list article includes an entry for May B. Aweley (title not extractable from the text view).",
+      "source_key": "bild_bestseller_2016"
+    }
+  ],
+  "feature_links": [
+    {
+      "kind": "Interview",
+      "outlet": "regionalHeute.de",
+      "title": "Wolfenbüttels Thriller-Autorin May B. Aweley im Interview",
+      "published": "2017-05-07",
+      "highlights": [
+        "Discusses pen name rationale and personal background (Polish roots; living in Wolfenbüttel at the time).",
+        "Mentions early publication timeline and that the FBI-team series grew based on reader demand.",
+        "Includes an audio excerpt reading from ‘Erlöse uns’."
+      ],
+      "source_key": "regionalheute_interview_2017"
+    },
+    {
+      "kind": "Interview",
+      "outlet": "Lesebuch (Richter on Web)",
+      "title": "Interview mit May B. Aweley",
+      "published": "2019-05-07",
+      "highlights": [
+        "Discusses reading/writing origins, use of pseudonym, and working rituals.",
+        "Explains how ‘Puppenbraut’ arose from parental fears; outlines how the FBI-team books developed.",
+        "Mentions later projects and desire to return to the FBI-team."
+      ],
+      "source_key": "richteronweb_interview_2019"
+    },
+    {
+      "kind": "Feature",
+      "outlet": "Skoutz",
+      "title": "Skoutz-Jahresendspurt 2017 – zweites Türchen von May B. Aweley",
+      "published": "2017-12-02",
+      "highlights": [
+        "Guest contribution + giveaway; describes ‘Erinnerung aus Glas’ as her sixth thriller.",
+        "Includes references to her Facebook page and an Amazon link to the book."
+      ],
+      "source_key": "skoutz_jahresendspurt_2017"
+    }
+  ],
+  "implementation_notes": {
+    "recommended_display": [
+      "Show an 'As seen on' / 'Featured on' strip with outlet names and links.",
+      "Optionally show a 'Reader ratings snapshot' badge per book (e.g., 'LovelyBooks: 4.2/5 (19 Bewertungen) – Stand: 2026-01-22').",
+      "Only display ratings for titles above a threshold (e.g., >= 4.0 stars and >= 10 ratings), otherwise link only."
+    ],
+    "legal_and_tos_caveats": [
+      "Even numeric rating data can be governed by platform terms; safest approach is to link rather than copy.",
+      "Do not copy/paste Amazon reviews or Amazon rating widgets unless you are compliant with Amazon's Product Advertising/affiliate terms.",
+      "For quotes (press blurbs, reviewer snippets): obtain written permission from the rights holder, store proof, and attribute clearly."
+    ]
+  }
+}

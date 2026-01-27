@@ -1,0 +1,21 @@
+{
+  "as_of": "2026-01-22",
+  "candidates": [
+    {
+      "kind": "editorial_quote",
+      "source_outlet": "Skoutz",
+      "context": "Feature/interview page contains a positive 'Skoutz meint' paragraph about 'Existenzlos'.",
+      "source_url": "https://skoutz.de/zu-besuch-bei-may-b-aweley/",
+      "permission_required": true,
+      "recommended_action": "Ask Skoutz marketing/contact to grant permission to reuse the quote (or use a link-only 'Skoutz meint' teaser)."
+    },
+    {
+      "kind": "editorial_quote",
+      "source_outlet": "Skoutz",
+      "context": "Book feature page includes an excerpt attributed to Skoutz juror Andreas Adlon.",
+      "source_url": "https://skoutz.de/1325/",
+      "permission_required": true,
+      "recommended_action": "Request permission to reuse the juror quote as a marketing blurb; alternatively state the Midlist selection as a fact and link."
+    }
+  ]
+}
