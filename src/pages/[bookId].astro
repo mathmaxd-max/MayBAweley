@@ -24,7 +24,7 @@ const amazonUrl = getAmazonUrl(book);
 const releaseDate = book.release.ebook_date || book.release.print_date;
 const coverImage = `/images/covers/${book.id}.jpg`;
 
-// Generate structured data for SEO
+// Strukturierte Daten für SEO generieren
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Book',
@@ -74,7 +74,7 @@ const description = book.notes.length > 0
         <div class="md:col-span-1">
           <img
             src={coverImage}
-            alt={`Cover: ${book.title}`}
+            alt={`Buchcover: ${book.title}`}
             class="w-full rounded-lg shadow-xl"
             loading="eager"
             onerror="this.src='/images/covers/placeholder.jpg'"
@@ -116,11 +116,11 @@ const description = book.notes.length > 0
       <div class="prose prose-lg max-w-none mb-8">
         <h2 class="text-2xl font-serif font-semibold text-primary mb-4">Über das Buch</h2>
         <p class="text-xl font-serif italic text-text/80 mb-4">
-          {/* Placeholder for hook line */}
+          {/* Platzhalter für Hook-Zeile */}
           Ein spannender Thriller, der Sie von der ersten Seite an fesselt.
         </p>
         <div class="text-base leading-relaxed text-text/90 space-y-4">
-          {/* Placeholder for extended description */}
+          {/* Platzhalter für erweiterte Beschreibung */}
           {book.notes.map((note, index) => (
             <p key={index}>{note}</p>
           ))}

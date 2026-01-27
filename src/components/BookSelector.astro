@@ -39,13 +39,13 @@ const { books, selectedBookId } = Astro.props;
 <script>
   const selector = document.getElementById('book-selector');
   if (!selector) {
-    // Exit early if selector not found
+    // Frühes Beenden, wenn Selektor nicht gefunden
   } else {
   
   let selectedIndex = 0;
   const cards = selector.querySelectorAll('.book-card');
   
-  // Keyboard navigation
+  // Tastaturnavigation
   selector.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
       e.preventDefault();
@@ -64,7 +64,7 @@ const { books, selectedBookId } = Astro.props;
     }
   });
   
-  // Click handler
+  // Klick-Handler
   cards.forEach((card, index) => {
     card.addEventListener('click', () => {
       selectedIndex = index;
@@ -76,6 +76,7 @@ const { books, selectedBookId } = Astro.props;
     });
   });
   
+  // Auswahl aktualisieren
   function updateSelection() {
     cards.forEach((card, index) => {
       const isActive = index === selectedIndex;
@@ -90,6 +91,7 @@ const { books, selectedBookId } = Astro.props;
     });
   }
   
+  // Zu Karte scrollen
   function scrollToCard(index: number) {
     const card = cards[index] as HTMLElement;
     if (card) {
@@ -97,7 +99,7 @@ const { books, selectedBookId } = Astro.props;
     }
   }
   
-    // Initialize selection
+    // Auswahl initialisieren
     const initialSelected = Array.from(cards).findIndex(card => 
       card.getAttribute('aria-pressed') === 'true'
     );

@@ -43,7 +43,7 @@ export function shouldShowRating(book: Book): boolean {
   const rating = book.social_proof?.lovelybooks;
   if (!rating) return false;
   
-  // Only show if >= 4.0 stars AND >= 10 ratings
-  // Also hide Schmetterlingsatem per notes (1.8 stars)
+  // Nur anzeigen, wenn >= 4,0 Sterne UND >= 10 Bewertungen
+  // Auch Schmetterlingsatem verbergen gemäß Notizen (1,8 Sterne)
   return rating.stars >= 4.0 && rating.ratings_count >= 10;
 }

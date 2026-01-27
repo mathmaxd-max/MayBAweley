@@ -5,13 +5,13 @@ import BookDetail from '../components/BookDetail.astro';
 import { books, getBooksSortedByRatingCount } from '../data/books';
 import { author } from '../data/author';
 
-// Get novels only for display
+// Nur Romane für die Anzeige abrufen
 const novels = books.books.filter(book => book.type === 'novel');
 
-// Default to most popular book (highest rating count) or "Lauf, Sophie" (4.2 stars, 19 ratings)
+// Standardmäßig beliebtestes Buch (höchste Bewertungsanzahl) oder "Lauf, Sophie" (4,2 Sterne, 19 Bewertungen)
 const defaultBook = getBooksSortedByRatingCount().find(b => b.type === 'novel') || novels[0];
 
-// Generate structured data for homepage
+// Strukturierte Daten für Startseite generieren
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -19,7 +19,7 @@ const structuredData = {
   jobTitle: 'Autorin',
   description: author.bio_short,
   genre: author.genres,
-  sameAs: [], // To be filled with social media links
+  sameAs: [], // Mit Social-Media-Links zu füllen
 };
 ---
 
@@ -62,7 +62,7 @@ const structuredData = {
   
   window.addEventListener('book-selected', (event: CustomEvent<{ bookId: string }>) => {
     const { bookId } = event.detail;
-    // Navigate to book page
+    // Zur Buchseite navigieren
     window.location.href = `/${bookId}`;
   });
 </script>
