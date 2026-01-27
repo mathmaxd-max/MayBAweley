@@ -1,5 +1,6 @@
 ---
 import type { Book } from '../data/types';
+import { getCoverImagePath } from '../utils/covers';
 
 interface Props {
   book: Book;
@@ -7,7 +8,7 @@ interface Props {
 }
 
 const { book, isActive = false } = Astro.props;
-const coverPath = `/images/covers/${book.id}.jpg`;
+const coverPath = getCoverImagePath(book.id);
 ---
 
 <button
@@ -24,6 +25,8 @@ const coverPath = `/images/covers/${book.id}.jpg`;
       alt={`Buchcover: ${book.title}`}
       class="w-full h-48 md:h-56 object-cover"
       loading="lazy"
+      width="160"
+      height="240"
       onerror="this.src='/images/covers/placeholder.jpg'"
     />
     <div class="p-2">

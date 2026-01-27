@@ -5,6 +5,7 @@ import RatingBadge from '../components/RatingBadge.astro';
 import { getBookById, shouldShowRating } from '../data/books';
 import { getAmazonUrl } from '../utils/amazon';
 import { formatDate } from '../utils/formatting';
+import { getCoverImagePath } from '../utils/covers';
 import { author } from '../data/author';
 
 export async function getStaticPaths() {
@@ -22,7 +23,7 @@ interface Props {
 const { book } = Astro.props;
 const amazonUrl = getAmazonUrl(book);
 const releaseDate = book.release.ebook_date || book.release.print_date;
-const coverImage = `/images/covers/${book.id}.jpg`;
+const coverImage = getCoverImagePath(book.id);
 
 // Strukturierte Daten für SEO generieren
 const structuredData = {
@@ -77,6 +78,8 @@ const description = book.notes.length > 0
             alt={`Buchcover: ${book.title}`}
             class="w-full rounded-lg shadow-xl"
             loading="eager"
+            width="400"
+            height="600"
             onerror="this.src='/images/covers/placeholder.jpg'"
           />
         </div>
