@@ -3,23 +3,23 @@
   "items": [
     {
       "kind": "Skoutz-Award",
-      "title": "Midlist Crime 2016 (selected title: Der Angstheiler)",
+      "title": "Midlist Crime 2016 (ausgewähltes Werk: Der Angstheiler)",
       "date": "2016-03-23",
-      "details": "‘Der Angstheiler’ was selected into the Midlist Crime 2016 by juror Andreas Adlon.",
+      "details": "'Der Angstheiler' wurde von Juror Andreas Adlon in die Midlist Crime 2016 aufgenommen.",
       "source_key": "skoutz_midlist_crime_2016"
     },
     {
       "kind": "Skoutz-Award",
-      "title": "Crime category juror (Jury 2018)",
+      "title": "Juror der Kategorie Crime (Jury 2018)",
       "date": "2018-02-01",
-      "details": "May B. Aweley served as the Skoutz-Award 2018 juror for the Crime category.",
+      "details": "May B. Aweley war Juror des Skoutz-Award 2018 in der Kategorie Crime.",
       "source_key": "skoutz_jury_2018"
     },
     {
       "kind": "Press mention",
-      "title": "BILD Bestseller-Liste (author mention)",
+      "title": "BILD Bestseller-Liste (Erwähnung der Autorin)",
       "date": "2016-08-22",
-      "details": "BILD’s bestseller list article includes an entry for May B. Aweley (title not extractable from the text view).",
+      "details": "Der Bestseller-Listen-Artikel der BILD enthält einen Eintrag für May B. Aweley (Titel aus der Textansicht nicht extrahierbar).",
       "source_key": "bild_bestseller_2016"
     }
   ]
