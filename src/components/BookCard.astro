@@ -12,23 +12,27 @@ const coverPath = getCoverImagePath(book.id);
 ---
 
 <button
-  class={`book-card flex-shrink-0 w-32 md:w-40 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg ${
-    isActive ? 'scale-105 shadow-xl ring-2 ring-primary' : 'hover:scale-102 shadow-md'
+  class={`book-card flex-shrink-0 w-32 md:w-40 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg flex flex-col ${
+    isActive 
+      ? 'scale-105 shadow-xl ring-2 ring-primary' 
+      : 'shadow-md hover:scale-102 hover:shadow-lg hover:brightness-105'
   }`}
   data-book-id={book.id}
   aria-label={`${book.title} auswählen`}
   aria-pressed={isActive}
 >
-  <div class="card overflow-hidden">
-    <img
-      src={coverPath}
-      alt={`Buchcover: ${book.title}`}
-      class="w-full h-48 md:h-56 object-cover"
-      loading="lazy"
-      width="160"
-      height="240"
-      onerror="this.src='/images/covers/placeholder.jpg'"
-    />
+  <div class="card overflow-hidden flex flex-col h-full">
+    <div class="w-full h-48 md:h-56 overflow-hidden">
+      <img
+        src={coverPath}
+        alt={`Buchcover: ${book.title}`}
+        class="w-full h-full object-cover"
+        loading="lazy"
+        width="160"
+        height="240"
+        onerror="this.src='/images/covers/placeholder.jpg'"
+      />
+    </div>
     <div class="p-2">
       <h3 class="text-xs md:text-sm font-serif font-semibold text-text line-clamp-2 text-center">
         {book.title}
