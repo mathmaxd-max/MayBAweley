@@ -54,15 +54,193 @@ const structuredData = {
   </div>
 </BaseLayout>
 
-<script define:vars={{ books: novels, defaultBookId: defaultBook.id }}>
+<script id="books-data" type="application/json" set:html={JSON.stringify(novels)} data-default-id={defaultBook.id}></script>
+<script>
+  // Store books data in a way that's guaranteed to be accessible
+  function getBooksData() {
+    const scriptTag = document.getElementById('books-data');
+    if (!scriptTag) {
+      console.error('Books data script tag not found');
+      return { books: [], defaultId: '' };
+    }
+    try {
+      const books = JSON.parse(scriptTag.textContent || '[]');
+      const defaultId = scriptTag.getAttribute('data-default-id') || '';
+      return { books, defaultId };
+    } catch (e) {
+      console.error('Error parsing books data:', e);
+      return { books: [], defaultId: '' };
+    }
+  }
+  
+  const { books: booksData, defaultId: defaultBookId } = getBooksData();
+  
   interface Book {
     id: string;
     title: string;
+    series?: {
+      name: string;
+      index: number | null;
+    };
+    release: {
+      ebook_date?: string;
+      print_date?: string;
+    };
+    notes?: string[];
+    social_proof?: {
+      lovelybooks?: {
+        stars: number;
+        ratings_count: number;
+      };
+    };
+    identifiers: {
+      amazon_asin_ebook?: string;
+      isbn13_print?: string;
+    };
+  }
+
+  function getAmazonUrl(book: Book): string | null {
+    if (book.identifiers.amazon_asin_ebook) {
+      return `https://www.amazon.de/dp/${book.identifiers.amazon_asin_ebook}`;
+    }
+    if (book.identifiers.isbn13_print) {
+      return `https://www.amazon.de/s?k=${book.identifiers.isbn13_print}`;
+    }
+    return null;
+  }
+
+  function formatDate(dateString: string | null | undefined): string {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}.${month}.${year}`;
+  }
+
+  function formatRating(stars: number): string {
+    return stars.toLocaleString('de-DE', {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1,
+    });
+  }
+
+  function shouldShowRating(book: Book): boolean {
+    const rating = book.social_proof?.lovelybooks;
+    if (!rating) return false;
+    return rating.stars >= 4.0 && rating.ratings_count >= 10;
+  }
+
+  function updateBookDetail(book: Book) {
+    const container = document.getElementById('book-detail-container');
+    if (!container) return;
+
+    const releaseDate = book.release.ebook_date || book.release.print_date;
+    const amazonUrl = getAmazonUrl(book);
+    const rating = book.social_proof?.lovelybooks;
+    const showRating = shouldShowRating(book);
+
+    container.innerHTML = `
+      <div class="book-detail max-w-3xl mx-auto p-6 md:p-8">
+        <div class="mb-6">
+          <h1 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-2">
+            ${book.title}
+          </h1>
+          ${book.series ? `
+            <p class="text-lg text-text/70 mb-2">
+              ${book.series.name}
+              ${book.series.index !== null ? ` – Band ${book.series.index}` : ''}
+            </p>
+          ` : ''}
+          ${releaseDate ? `
+            <p class="text-sm text-text/60">
+              Erschienen: ${formatDate(releaseDate)}
+            </p>
+          ` : ''}
+        </div>
+        
+        <div class="prose prose-lg max-w-none mb-6">
+          <p class="text-xl font-serif italic text-text/80 mb-4">
+            Ein spannender Thriller, der Sie von der ersten Seite an fesselt.
+          </p>
+          ${book.notes && book.notes.length > 0 ? `
+            <p class="text-base leading-relaxed text-text/90 mb-4">
+              ${book.notes[0]}
+            </p>
+          ` : ''}
+        </div>
+        
+        ${showRating && rating ? `
+          <div class="mb-6">
+            <div class="inline-flex items-center gap-2 bg-neutral-light px-4 py-2 rounded-lg">
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-accent fill-current" viewBox="0 0 20 20">
+                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                </svg>
+                <span class="ml-1 font-semibold text-text">${formatRating(rating.stars)}</span>
+              </div>
+              <span class="text-sm text-text/70">(${rating.ratings_count} Bewertungen)</span>
+            </div>
+          </div>
+        ` : ''}
+        
+        <div class="flex flex-col sm:flex-row gap-4 mt-8">
+          ${amazonUrl ? `
+            <a
+              href="${amazonUrl}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary text-center"
+            >
+              Bei Amazon kaufen
+            </a>
+          ` : ''}
+          <a
+            href="/${book.id}"
+            class="btn-secondary text-center"
+          >
+            Mehr Details
+          </a>
+        </div>
+        
+        ${book.series ? `
+          <div class="mt-6 p-4 bg-neutral-light rounded-lg">
+            <p class="text-sm text-text/70">
+              <strong>Reihenfolge:</strong> Dieses Buch ist Teil der ${book.series.name}-Reihe.
+              ${book.series.index !== null ? ` Es ist Band ${book.series.index} der Serie.` : ''}
+              Die Bücher können unabhängig voneinander gelesen werden, sind aber in der Veröffentlichungsreihenfolge am besten zu genießen.
+            </p>
+          </div>
+        ` : ''}
+      </div>
+    `;
+
+    // Smooth scroll to book detail
+    container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
   
+  // Set up event listener immediately
   window.addEventListener('book-selected', (event: CustomEvent<{ bookId: string }>) => {
     const { bookId } = event.detail;
-    // Zur Buchseite navigieren
-    window.location.href = `/${bookId}`;
+    if (!booksData || !Array.isArray(booksData)) {
+      console.error('Books array not available');
+      return;
+    }
+    const selectedBook = booksData.find((b: Book) => b.id === bookId);
+    if (selectedBook) {
+      updateBookDetail(selectedBook);
+    } else {
+      console.warn('Book not found:', bookId, 'Total books:', booksData.length);
+    }
   });
+
+  // Dispatch initial event for default book after a short delay to ensure DOM is ready
+  setTimeout(() => {
+    if (booksData && Array.isArray(booksData) && defaultBookId) {
+      const defaultBook = booksData.find((b: Book) => b.id === defaultBookId);
+      if (defaultBook) {
+        window.dispatchEvent(new CustomEvent('book-selected', { detail: { bookId: defaultBookId } }));
+      }
+    }
+  }, 100);
 </script>
