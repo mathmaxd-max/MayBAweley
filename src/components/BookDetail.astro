@@ -6,11 +6,20 @@ import RatingBadge from './RatingBadge.astro';
 
 interface Props {
   book: Book;
+  /** Index of reader comment to show (for main page); random at build if not passed. */
+  randomCommentIndex?: number;
 }
 
-const { book } = Astro.props;
+const { book, randomCommentIndex } = Astro.props;
 const amazonUrl = getAmazonUrl(book);
 const releaseDate = book.release.ebook_date || book.release.print_date;
+const teaser = book.description_short
+  ?? (book.description
+    ? (book.description.split(/\n\n+/)[0]?.trim() || book.description.slice(0, 200).trim())
+    : null);
+const comments = book.readers_commentary?.length ? book.readers_commentary : book.reader_feedback;
+const commentIndex = randomCommentIndex ?? (comments?.length ? Math.floor(Math.random() * comments.length) : 0);
+const oneComment = comments?.[commentIndex] ?? null;
 ---
 
 <div class="book-detail max-w-3xl mx-auto p-6 md:p-8">
@@ -32,15 +41,34 @@ const releaseDate = book.release.ebook_date || book.release.print_date;
   </div>
   
   <div class="prose prose-lg max-w-none mb-6">
-    <p class="text-xl font-serif italic text-text/80 mb-4">
-      {/* Platzhalter für Hook-Zeile - mit tatsächlichem Inhalt zu füllen */}
-      Ein spannender Thriller, der Sie von der ersten Seite an fesselt.
-    </p>
-    <p class="text-base leading-relaxed text-text/90 mb-4">
-      {/* Platzhalter für Teaser - mit tatsächlichem Inhalt zu füllen */}
-      {book.notes.length > 0 && book.notes[0]}
-    </p>
+    {teaser ? (
+      <p class="text-xl font-serif italic text-text/80 mb-4">
+        {teaser}
+      </p>
+    ) : (
+      <>
+        <p class="text-xl font-serif italic text-text/80 mb-4">
+          Ein spannender Thriller, der Sie von der ersten Seite an fesselt.
+        </p>
+        {book.notes.length > 0 && (
+          <p class="text-base leading-relaxed text-text/90 mb-4">
+            {book.notes[0]}
+          </p>
+        )}
+      </>
+    )}
   </div>
+
+  {book.special_selling_point && (
+    <p class="text-sm font-semibold text-primary mb-4">
+      {book.special_selling_point}
+    </p>
+  )}
+  {oneComment && (
+    <blockquote class="border-l-4 border-primary pl-4 py-2 text-text/90 italic mb-6">
+      {oneComment}
+    </blockquote>
+  )}
   
   <RatingBadge book={book} />
   

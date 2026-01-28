@@ -5,11 +5,14 @@ import BookDetail from '../components/BookDetail.astro';
 import { books, getBooksSortedByRatingCount } from '../data/books';
 import { author } from '../data/author';
 
-// Nur Romane für die Anzeige abrufen
-const novels = books.books.filter(book => book.type === 'novel');
+// Homepage "scroll thingy": show *all* books we have in `src/data/books.json`.
+// Previously this was limited to novels only, which made shorts/anthologies disappear.
+const allBooks = books.books;
 
-// Standardmäßig beliebtestes Buch (höchste Bewertungsanzahl) oder "Lauf, Sophie" (4,2 Sterne, 19 Bewertungen)
-const defaultBook = getBooksSortedByRatingCount().find(b => b.type === 'novel') || novels[0];
+// Default selected book on homepage.
+const defaultBook = allBooks.find((b) => b.id === 'trau_ihr_nicht') || getBooksSortedByRatingCount()[0] || allBooks[0];
+const defaultComments = defaultBook.readers_commentary?.length ? defaultBook.readers_commentary : defaultBook.reader_feedback;
+const defaultCommentIndex = defaultComments?.length ? Math.floor(Math.random() * defaultComments.length) : 0;
 
 // Strukturierte Daten für Startseite generieren
 const structuredData = {
@@ -44,17 +47,17 @@ const structuredData = {
         <h2 class="text-2xl font-serif font-semibold text-primary mb-6 text-center">
           Meine Bücher
         </h2>
-        <BookSelector books={novels} selectedBookId={defaultBook.id} />
+        <BookSelector books={allBooks} selectedBookId={defaultBook.id} />
       </div>
       
       <div id="book-detail-container">
-        <BookDetail book={defaultBook} />
+        <BookDetail book={defaultBook} randomCommentIndex={defaultCommentIndex} />
       </div>
     </div>
   </div>
 </BaseLayout>
 
-<script id="books-data" type="application/json" set:html={JSON.stringify(novels)} data-default-id={defaultBook.id}></script>
+<script id="books-data" type="application/json" set:html={JSON.stringify(allBooks)} data-default-id={defaultBook.id}></script>
 <script>
   // Store books data in a way that's guaranteed to be accessible
   function getBooksData() {
@@ -87,19 +90,24 @@ const structuredData = {
       print_date?: string;
     };
     notes?: string[];
+    description?: string;
+    description_short?: string;
+    special_selling_point?: string;
+    readers_commentary?: string[];
+    reader_feedback?: string[];
     social_proof?: {
-      lovelybooks?: {
-        stars: number;
-        ratings_count: number;
-      };
+      lovelybooks?: { stars: number; ratings_count: number };
+      amazon?: { stars: number; ratings_count: number; source_url: string };
     };
     identifiers: {
       amazon_asin_ebook?: string;
+      amazon_url?: string;
       isbn13_print?: string;
     };
   }
 
   function getAmazonUrl(book: Book): string | null {
+    if (book.identifiers.amazon_url) return book.identifiers.amazon_url;
     if (book.identifiers.amazon_asin_ebook) {
       return `https://www.amazon.de/dp/${book.identifiers.amazon_asin_ebook}`;
     }
@@ -125,30 +133,53 @@ const structuredData = {
     });
   }
 
-  function shouldShowRating(book: Book): boolean {
-    const rating = book.social_proof?.lovelybooks;
-    if (!rating) return false;
-    return rating.stars >= 4.0 && rating.ratings_count >= 10;
+  function getDisplayRating(book: Book): { stars: number; ratings_count: number } | null {
+    const amazon = book.social_proof?.amazon;
+    const lovelybooks = book.social_proof?.lovelybooks;
+    if (amazon) return { stars: amazon.stars, ratings_count: amazon.ratings_count };
+    if (lovelybooks) return { stars: lovelybooks.stars, ratings_count: lovelybooks.ratings_count };
+    return null;
   }
 
-  function updateBookDetail(book: Book) {
+  function shouldShowRating(book: Book): boolean {
+    const rating = getDisplayRating(book);
+    return rating != null && rating.stars >= 4;
+  }
+
+  function escapeHtml(s: string): string {
+    const div = document.createElement('div');
+    div.textContent = s;
+    return div.innerHTML;
+  }
+
+  function updateBookDetail(book: Book, scrollToDetail: boolean = false) {
     const container = document.getElementById('book-detail-container');
     if (!container) return;
 
     const releaseDate = book.release.ebook_date || book.release.print_date;
     const amazonUrl = getAmazonUrl(book);
-    const rating = book.social_proof?.lovelybooks;
-    const showRating = shouldShowRating(book);
+    const rating = getDisplayRating(book);
+    const showRatingBlock = rating && (rating.stars >= 4 || rating.ratings_count >= 1000);
+    const showStars = rating && shouldShowRating(book);
+    const teaser = book.description_short
+      || (book.description
+        ? (book.description.split(/\n\n+/)[0]?.trim() || book.description.slice(0, 200).trim())
+        : (book.notes && book.notes.length > 0 ? book.notes[0] : 'Ein spannender Thriller, der Sie von der ersten Seite an fesselt.'));
+    const teaserEscaped = escapeHtml(teaser).replace(/\n/g, '<br />');
+    const comments = book.readers_commentary?.length ? book.readers_commentary : book.reader_feedback;
+    const oneComment = comments?.length ? comments[Math.floor(Math.random() * comments.length)] : null;
+    const sellingPointEscaped = book.special_selling_point ? escapeHtml(book.special_selling_point) : '';
+    const commentEscaped = oneComment ? escapeHtml(oneComment) : '';
 
     container.innerHTML = `
       <div class="book-detail max-w-3xl mx-auto p-6 md:p-8">
         <div class="mb-6">
           <h1 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-2">
-            ${book.title}
+            ${escapeHtml(book.title)}
           </h1>
           ${book.series ? `
             <p class="text-lg text-text/70 mb-2">
-              ${book.series.name}
+              ${escapeHtml(book.series.name)}
               ${book.series.index !== null ? ` – Band ${book.series.index}` : ''}
             </p>
           ` : ''}
@@ -160,26 +191,34 @@ const structuredData = {
         </div>
         
         <div class="prose prose-lg max-w-none mb-6">
-          <p class="text-xl font-serif italic text-text/80 mb-4">
-            Ein spannender Thriller, der Sie von der ersten Seite an fesselt.
+          <p class="text-xl font-serif italic text-text/80 mb-4 whitespace-pre-line">
+            ${teaserEscaped}
           </p>
-          ${book.notes && book.notes.length > 0 ? `
-            <p class="text-base leading-relaxed text-text/90 mb-4">
-              ${book.notes[0]}
-            </p>
-          ` : ''}
         </div>
+
+        ${sellingPointEscaped ? `
+          <p class="text-sm font-semibold text-primary mb-4">
+            ${sellingPointEscaped}
+          </p>
+        ` : ''}
+        ${commentEscaped ? `
+          <blockquote class="border-l-4 border-primary pl-4 py-2 text-text/90 italic mb-6">
+            ${commentEscaped}
+          </blockquote>
+        ` : ''}
         
-        ${showRating && rating ? `
+        ${showRatingBlock ? `
           <div class="mb-6">
             <div class="inline-flex items-center gap-2 bg-neutral-light px-4 py-2 rounded-lg">
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-accent fill-current" viewBox="0 0 20 20">
-                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-                </svg>
-                <span class="ml-1 font-semibold text-text">${formatRating(rating.stars)}</span>
-              </div>
-              <span class="text-sm text-text/70">(${rating.ratings_count} Bewertungen)</span>
+              ${showStars ? `
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 text-accent fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <span class="ml-1 font-semibold text-text">${formatRating(rating.stars)}</span>
+                </div>
+              ` : ''}
+              <span class="text-sm text-text/70">(${rating!.ratings_count.toLocaleString('de-DE')} Bewertungen)</span>
             </div>
           </div>
         ` : ''}
@@ -187,7 +226,7 @@ const structuredData = {
         <div class="flex flex-col sm:flex-row gap-4 mt-8">
           ${amazonUrl ? `
             <a
-              href="${amazonUrl}"
+              href="${escapeHtml(amazonUrl)}"
               target="_blank"
               rel="noopener noreferrer"
               class="btn-primary text-center"
@@ -196,7 +235,7 @@ const structuredData = {
             </a>
           ` : ''}
           <a
-            href="/${book.id}"
+            href="/${escapeHtml(book.id)}"
             class="btn-secondary text-center"
           >
             Mehr Details
@@ -206,7 +245,7 @@ const structuredData = {
         ${book.series ? `
           <div class="mt-6 p-4 bg-neutral-light rounded-lg">
             <p class="text-sm text-text/70">
-              <strong>Reihenfolge:</strong> Dieses Buch ist Teil der ${book.series.name}-Reihe.
+              <strong>Reihenfolge:</strong> Dieses Buch ist Teil der ${escapeHtml(book.series.name)}-Reihe.
               ${book.series.index !== null ? ` Es ist Band ${book.series.index} der Serie.` : ''}
               Die Bücher können unabhängig voneinander gelesen werden, sind aber in der Veröffentlichungsreihenfolge am besten zu genießen.
             </p>
@@ -215,31 +254,33 @@ const structuredData = {
       </div>
     `;
 
-    // Smooth scroll to book detail
-    container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    // Smooth scroll to book detail only if requested
+    if (scrollToDetail) {
+      container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
   }
   
   // Set up event listener immediately
-  window.addEventListener('book-selected', (event: CustomEvent<{ bookId: string }>) => {
-    const { bookId } = event.detail;
+  window.addEventListener('book-selected', (event: CustomEvent<{ bookId: string; scrollToDetail?: boolean }>) => {
+    const { bookId, scrollToDetail = false } = event.detail;
     if (!booksData || !Array.isArray(booksData)) {
       console.error('Books array not available');
       return;
     }
     const selectedBook = booksData.find((b: Book) => b.id === bookId);
     if (selectedBook) {
-      updateBookDetail(selectedBook);
+      updateBookDetail(selectedBook, scrollToDetail);
     } else {
       console.warn('Book not found:', bookId, 'Total books:', booksData.length);
     }
   });
 
-  // Dispatch initial event for default book after a short delay to ensure DOM is ready
+  // Dispatch initial event for default book after a short delay to ensure DOM is ready (no scroll on initial load)
   setTimeout(() => {
     if (booksData && Array.isArray(booksData) && defaultBookId) {
       const defaultBook = booksData.find((b: Book) => b.id === defaultBookId);
       if (defaultBook) {
-        window.dispatchEvent(new CustomEvent('book-selected', { detail: { bookId: defaultBookId } }));
+        window.dispatchEvent(new CustomEvent('book-selected', { detail: { bookId: defaultBookId, scrollToDetail: false } }));
       }
     }
   }, 100);

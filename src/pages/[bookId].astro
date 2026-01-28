@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BookDetail from '../components/BookDetail.astro';
 import RatingBadge from '../components/RatingBadge.astro';
-import { getBookById, shouldShowRating } from '../data/books';
 import { getAmazonUrl } from '../utils/amazon';
 import { formatDate } from '../utils/formatting';
 import { getCoverImagePath } from '../utils/covers';
@@ -56,14 +55,16 @@ const structuredData = {
 };
 
 const title = `${book.title} – Thriller von ${author.name}`;
-const description = book.notes.length > 0 
-  ? book.notes[0].substring(0, 160)
-  : `${book.title} von ${author.name}. ${book.series ? `Teil der ${book.series.name}-Reihe.` : ''} Jetzt bei Amazon erhältlich.`;
+const metaDescription = book.description
+  ? book.description.replace(/\s+/g, ' ').trim().substring(0, 160)
+  : book.notes.length > 0
+    ? book.notes[0].substring(0, 160)
+    : `${book.title} von ${author.name}. ${book.series ? `Teil der ${book.series.name}-Reihe.` : ''} Jetzt bei Amazon erhältlich.`;
 ---
 
 <BaseLayout
   title={title}
-  description={description}
+  description={metaDescription}
   image={coverImage}
   type="book"
 >
@@ -118,17 +119,45 @@ const description = book.notes.length > 0
       
       <div class="prose prose-lg max-w-none mb-8">
         <h2 class="text-2xl font-serif font-semibold text-primary mb-4">Über das Buch</h2>
-        <p class="text-xl font-serif italic text-text/80 mb-4">
-          {/* Platzhalter für Hook-Zeile */}
-          Ein spannender Thriller, der Sie von der ersten Seite an fesselt.
-        </p>
-        <div class="text-base leading-relaxed text-text/90 space-y-4">
-          {/* Platzhalter für erweiterte Beschreibung */}
-          {book.notes.map((note, index) => (
-            <p key={index}>{note}</p>
-          ))}
-        </div>
+        {book.description ? (
+          <div class="text-base leading-relaxed text-text/90 whitespace-pre-line">
+            {book.description}
+          </div>
+        ) : (
+          <>
+            <p class="text-xl font-serif italic text-text/80 mb-4">
+              Ein spannender Thriller, der Sie von der ersten Seite an fesselt.
+            </p>
+            <div class="text-base leading-relaxed text-text/90 space-y-4">
+              {book.notes.map((note, index) => (
+                <p key={index}>{note}</p>
+              ))}
+            </div>
+          </>
+        )}
       </div>
+
+      {book.special_selling_point && (
+        <div class="mb-8">
+          <h2 class="text-2xl font-serif font-semibold text-primary mb-4">Besonderes</h2>
+          <p class="text-base font-semibold text-primary">
+            {book.special_selling_point}
+          </p>
+        </div>
+      )}
+
+      {(book.readers_commentary?.length ?? book.reader_feedback?.length ?? 0) > 0 && (
+        <div class="prose prose-lg max-w-none mb-8">
+          <h2 class="text-2xl font-serif font-semibold text-primary mb-4">Leserstimmen</h2>
+          <div class="space-y-6">
+            {(book.readers_commentary ?? book.reader_feedback ?? []).map((quote, index) => (
+              <blockquote key={index} class="border-l-4 border-primary pl-4 py-2 text-text/90 italic">
+                {quote}
+              </blockquote>
+            ))}
+          </div>
+        </div>
+      )}
       
       {book.series && (
         <div class="p-6 bg-neutral-light rounded-lg mb-8">

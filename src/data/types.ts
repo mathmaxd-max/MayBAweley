@@ -23,6 +23,7 @@ export interface BookRelease {
 
 export interface BookIdentifiers {
   amazon_asin_ebook?: string;
+  amazon_url?: string;
   isbn13_print?: string;
   isbn10_print?: string;
 }
@@ -49,8 +50,15 @@ export interface LovelyBooksRating {
   notes?: string[];
 }
 
+export interface AmazonRating {
+  stars: number;
+  ratings_count: number;
+  source_url: string;
+}
+
 export interface BookSocialProof {
   lovelybooks?: LovelyBooksRating;
+  amazon?: AmazonRating;
 }
 
 export interface Book {
@@ -62,6 +70,14 @@ export interface Book {
   identifiers: BookIdentifiers;
   credits?: BookCredits;
   notes: string[];
+  description?: string;
+  /** Concise short description (e.g. for cards or meta); fill in manually. */
+  description_short?: string;
+  reader_feedback?: string[];
+  /** Short selling point (e.g. "Durchbruch in die TOP10..."). */
+  special_selling_point?: string;
+  /** Reader comments for social proof; use readers_commentary or reader_feedback. */
+  readers_commentary?: string[];
   social_proof?: BookSocialProof;
 }
 

@@ -1,6 +1,6 @@
 ---
 import type { Book } from '../data/types';
-import { shouldShowRating } from '../data/books';
+import { shouldShowRating, getDisplayRating } from '../data/books';
 import { formatRating, formatDate } from '../utils/formatting';
 
 interface Props {
@@ -8,11 +8,20 @@ interface Props {
 }
 
 const { book } = Astro.props;
-const rating = book.social_proof?.lovelybooks;
+const rating = getDisplayRating(book);
+const lovelybooks = book.social_proof?.lovelybooks;
 
-if (!rating || !shouldShowRating(book)) {
+if (!rating || !rating.source_url) {
   return null;
 }
+if (rating.stars < 4 && rating.ratings_count < 1000) {
+  return null;
+}
+
+const isAmazon = !!book.social_proof?.amazon;
+const label = isAmazon ? 'Amazon' : 'LovelyBooks';
+const showStars = shouldShowRating(book);
+const countText = `${rating.ratings_count.toLocaleString('de-DE')} Bewertungen`;
 ---
 
 <div class="mt-4">
@@ -22,12 +31,16 @@ if (!rating || !shouldShowRating(book)) {
     rel="noopener noreferrer"
     class="inline-flex items-center gap-2 text-sm text-text/80 hover:text-primary transition-colors"
   >
-    <span class="font-semibold">LovelyBooks:</span>
-    <span class="flex items-center gap-1">
-      <span>{formatRating(rating.stars)}</span>
-      <span class="text-accent">★</span>
-    </span>
-    <span>({rating.ratings_count} Bewertungen)</span>
-    <span class="text-text/60">— Stand: {formatDate(rating.captured_on)}</span>
+    <span class="font-semibold">{label}:</span>
+    {showStars && (
+      <span class="flex items-center gap-1">
+        <span>{formatRating(rating.stars)}</span>
+        <span class="text-accent">★</span>
+      </span>
+    )}
+    <span>({countText})</span>
+    {showStars && !isAmazon && lovelybooks?.captured_on && (
+      <span class="text-text/60">— Stand: {formatDate(lovelybooks.captured_on)}</span>
+    )}
   </a>
 </div>

@@ -280,12 +280,12 @@ const { books, selectedBookId } = Astro.props;
         selectedIndex = closestIndex;
         updateSelection();
         
-        // Dispatch book-selected event when selection changes via scrolling
+        // Dispatch book-selected event when selection changes via scrolling (no scroll to detail)
         const card = cards[selectedIndex] as HTMLElement;
         if (card) {
           const bookId = card.getAttribute('data-book-id');
           if (bookId) {
-            window.dispatchEvent(new CustomEvent('book-selected', { detail: { bookId } }));
+            window.dispatchEvent(new CustomEvent('book-selected', { detail: { bookId, scrollToDetail: false } }));
           }
         }
       }
@@ -298,7 +298,7 @@ const { books, selectedBookId } = Astro.props;
     }
 
     // Scroll to specific card
-    function scrollToCard(index: number) {
+    function scrollToCard(index: number, scrollToDetail: boolean = false) {
       const card = cards[index] as HTMLElement;
       if (card) {
         isScrolling = true;
@@ -306,10 +306,10 @@ const { books, selectedBookId } = Astro.props;
         selectedIndex = index;
         updateSelection();
         
-        // Dispatch book-selected event
+        // Dispatch book-selected event with scroll flag
         const bookId = card.getAttribute('data-book-id');
         if (bookId) {
-          window.dispatchEvent(new CustomEvent('book-selected', { detail: { bookId } }));
+          window.dispatchEvent(new CustomEvent('book-selected', { detail: { bookId, scrollToDetail } }));
         }
         
         // Reset scrolling flag after animation
@@ -332,11 +332,11 @@ const { books, selectedBookId } = Astro.props;
       });
     }
 
-    // Navigation button handlers
+    // Navigation button handlers - don't scroll to detail
     if (navButtonLeft) {
       navButtonLeft.addEventListener('click', () => {
         if (selectedIndex > 0) {
-          scrollToCard(selectedIndex - 1);
+          scrollToCard(selectedIndex - 1, false);
         } else {
           scrollByCard('left');
         }
@@ -346,31 +346,31 @@ const { books, selectedBookId } = Astro.props;
     if (navButtonRight) {
       navButtonRight.addEventListener('click', () => {
         if (selectedIndex < cards.length - 1) {
-          scrollToCard(selectedIndex + 1);
+          scrollToCard(selectedIndex + 1, false);
         } else {
           scrollByCard('right');
         }
       });
     }
 
-    // Dot indicator click handlers
+    // Dot indicator click handlers - scroll to detail when clicking dots
     indicators.forEach((dot, index) => {
       dot.addEventListener('click', () => {
-        scrollToCard(index);
+        scrollToCard(index, true);
       });
     });
 
-    // Keyboard navigation
+    // Keyboard navigation - don't scroll to detail
     selector.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
         if (selectedIndex > 0) {
-          scrollToCard(selectedIndex - 1);
+          scrollToCard(selectedIndex - 1, false);
         }
       } else if (e.key === 'ArrowRight') {
         e.preventDefault();
         if (selectedIndex < cards.length - 1) {
-          scrollToCard(selectedIndex + 1);
+          scrollToCard(selectedIndex + 1, false);
         }
       } else if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -379,10 +379,10 @@ const { books, selectedBookId } = Astro.props;
       }
     });
 
-    // Card click handlers - scroll to card like dot indicators
+    // Card click handlers - don't scroll to detail when clicking cards
     cards.forEach((card, index) => {
       card.addEventListener('click', () => {
-        scrollToCard(index);
+        scrollToCard(index, false);
         // Event is already dispatched in scrollToCard
       });
     });
@@ -423,9 +423,9 @@ const { books, selectedBookId } = Astro.props;
     if (initialSelected >= 0) {
       selectedIndex = initialSelected;
       updateSelection();
-      // Scroll to initial selected card after spacers are set
+      // Scroll to initial selected card after spacers are set (no scroll to detail on initial load)
       setTimeout(() => {
-        scrollToCard(initialSelected);
+        scrollToCard(initialSelected, false);
       }, 150);
     } else {
       // Initial UI update even if no initial selection

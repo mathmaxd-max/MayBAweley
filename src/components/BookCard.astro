@@ -1,6 +1,7 @@
 ---
 import type { Book } from '../data/types';
 import { getCoverImagePath } from '../utils/covers';
+import { getAmazonUrl } from '../utils/amazon';
 
 interface Props {
   book: Book;
@@ -9,10 +10,11 @@ interface Props {
 
 const { book, isActive = false } = Astro.props;
 const coverPath = getCoverImagePath(book.id);
+const amazonUrl = getAmazonUrl(book);
 ---
 
 <button
-  class={`book-card flex-shrink-0 w-32 md:w-40 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg flex flex-col ${
+  class={`book-card flex-shrink-0 w-32 md:w-40 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg flex flex-col group ${
     isActive 
       ? 'scale-105 shadow-xl ring-2 ring-primary' 
       : 'shadow-md hover:scale-102 hover:shadow-lg hover:brightness-105'
@@ -21,17 +23,31 @@ const coverPath = getCoverImagePath(book.id);
   aria-label={`${book.title} auswählen`}
   aria-pressed={isActive}
 >
-  <div class="card overflow-hidden flex flex-col h-full">
-    <div class="w-full h-48 md:h-56 overflow-hidden">
+  <div class="card overflow-hidden flex flex-col h-full relative">
+    <div class="w-full overflow-hidden relative">
       <img
         src={coverPath}
         alt={`Buchcover: ${book.title}`}
-        class="w-full h-full object-cover"
+        class="w-full h-auto block"
         loading="lazy"
         width="160"
         height="240"
         onerror="this.src='/images/covers/placeholder.jpg'"
       />
+      {amazonUrl && (
+        <a
+          href={amazonUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="amazon-overlay absolute inset-0 bg-primary/85 opacity-0 transition-opacity duration-200 flex items-center justify-center cursor-pointer z-10 pointer-events-none"
+          onclick={(e) => e.stopPropagation()}
+          aria-label="Bei Amazon kaufen"
+        >
+          <span class="text-text-light font-semibold text-sm md:text-base px-4 py-2 bg-primary/95 rounded-md shadow-lg backdrop-blur-sm">
+            Auf Amazon
+          </span>
+        </a>
+      )}
     </div>
     <div class="p-2">
       <h3 class="text-xs md:text-sm font-serif font-semibold text-text line-clamp-2 text-center">
@@ -45,3 +61,11 @@ const coverPath = getCoverImagePath(book.id);
     </div>
   </div>
 </button>
+
+<style>
+  /* Show overlay only on active cards when hovered */
+  .book-card[aria-pressed="true"]:hover .amazon-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>

@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-01-22",
+  "as_of": "2026-01-29",
   "books": [
     {
       "id": "puppenbraut",
@@ -14,11 +14,25 @@
       },
       "identifiers": {
         "amazon_asin_ebook": "B00DDXHJSM",
+        "amazon_url": "https://www.amazon.de/-/en/May-B-Aweley-ebook/dp/B00DDXHJSM",
         "isbn13_print": "9783743118881"
       },
       "notes": [
         "Wird häufig als Durchbruchstitel in Autoren-/Verleger-Biografien beschrieben (Top-10-Ansprüche).",
         "Handlung wird üblicherweise als Entführung eines Kindes beschrieben; genaue Beschreibung mit Autorin abklären."
+      ],
+      "description": "Ein Mädchen.\nEr liebt es.\nEs ist falsch.\n\nZoey Andrews verschwindet an einem warmen Herbsttag aus einem Park mitten im Herzen von New York City. Es gibt keine Zeugen.\nDie Cops des New York City Police Departments halten das Mädchen für das dritte Opfer des von ihnen spöttisch genannten „Dolly-Lovers“.\nFür die Journalistin Doreen Bertani beginnt ein Wettlauf gegen die Zeit. Sie hat exakt sieben Tage, die Antwort auf die Frage zu finden:\nWie weit würdest du für das Leben eines fremden Kindes gehen?",
+      "description_short": "Ein Mädchen.\nEr liebt es.\nEs ist falsch.\n\nAls Zoey Andrews spurlos verschwindet, beginnt ein Wettlauf gegen die Zeit.",
+      "reader_feedback": [
+        "Wann immer sich jemand die Zeit nimmt über den Missbrauch an Kindern zu schreiben, möchte auch ich mich hinsetzen und dieses Thema schreiend niederschreiben. Ich kann diese Geschichte nur empfehlen. Leider hat selten ein entführtes Kind das Glück zu überleben...ob es danach noch Glück genannt werden kann...? Lest dieses Buch. May B. Aweley versteht ihr Handwerk.",
+        "Auch wenn das Buch scheinbar schon viel Kritik einstecken musste, kann ich nur sagen, dass es mir gut gefallen hat.",
+        "Konnte mich lange Zeit in keinen Roman mehr einlesen, weil mich die Inhalte langweilten. Diese Geschichte zog mich endlich nochmal in ihren Bann."
+      ],
+      "special_selling_point": "Durchbruch in die TOP10 der Thriller & Krimi-Bestsellerliste",
+      "readers_commentary": [
+        "Wann immer sich jemand die Zeit nimmt über den Missbrauch an Kindern zu schreiben, möchte auch ich mich hinsetzen und dieses Thema schreiend niederschreiben. Ich kann diese Geschichte nur empfehlen. Leider hat selten ein entführtes Kind das Glück zu überleben...ob es danach noch Glück genannt werden kann...? Lest dieses Buch. May B. Aweley versteht ihr Handwerk.",
+        "Auch wenn das Buch scheinbar schon viel Kritik einstecken musste, kann ich nur sagen, dass es mir gut gefallen hat.",
+        "Konnte mich lange Zeit in keinen Roman mehr einlesen, weil mich die Inhalte langweilten. Diese Geschichte zog mich endlich nochmal in ihren Bann."
       ],
       "social_proof": {
         "lovelybooks": {
@@ -33,6 +47,11 @@
           },
           "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Puppenbraut-1086482554-w/",
           "captured_on": "2026-01-22"
+        },
+        "amazon": {
+          "stars": 3.7,
+          "ratings_count": 2997,
+          "source_url": "https://www.amazon.de/-/en/May-B-Aweley-ebook/dp/B00DDXHJSM"
         }
       }
     },
@@ -50,10 +69,19 @@
       },
       "identifiers": {
         "amazon_asin_ebook": "B00J0E656U",
+        "amazon_url": "https://www.amazon.de/-/en/Existenzlos-May-B-Aweley/dp/149734705X",
         "isbn13_print": "9783749483204"
       },
       "notes": [
         "Printausgabe erscheint unter dem Titel 'Existenzloa' (BoD-Listung). Als dasselbe Werk behandeln, es sei denn, die Autorin gibt etwas anderes an."
+      ],
+      "description": "Du öffnest die Augen. Du weißt nicht, wer du bist. Eine Frau ohne Namen, ohne Vergangenheit. Kann das, was sie dir erzählen, deine Geschichte sein? Vielleicht ist die simple Wahrheit, dass sie dich deiner wahren EXISTENZ beraubt haben!\n\nDie Polizistin Alicia Juárez wird im Central Park bewusstlos aufgefunden. Wie im nahegelegenen Krankenhaus später festgestellt wird, leidet sie an retrograder Amnesie. Während sie versucht, ihrer Vergangenheit auf die Spur zu kommen, findet sie dunkle Geheimnisse. Sie öffnet dabei Türen, die besser verschlossen geblieben wären...\n\nMit dem ersten Thriller \"Puppenbraut\" gelang der Autorin der Durchbruch in die TOP20 der Bestsellerliste. Die Handlung von \"Existenzlos\" basiert auf Fakten.",
+      "description_short": "Du öffnest die Augen.\nDu weißt nicht, wer du bist.\nEine Frau ohne Namen, ohne Vergangenheit.\n\nUm ihre Vergangenheit zu finden, öffnet die Polizistin Alicia Juárez Türen, die besser verschlossen geblieben wären.",
+      "special_selling_point": "Basiert auf wahren Begebenheiten.",
+      "readers_commentary": [
+        "»Ich lese sehr viel, klebe aber selten so in den Seiten wie bei diesem Buch.«",
+        "»Immer wenn ich glaubte, ich wusste, in welche Richtung die Sache sich entwickelt, wurde ich erneut überrascht. Ein Thriller der Extraklasse!«",
+        "»Für mich als Leser öffnen sich mit jeder Seite immer mehr Türen und die Geschichte.«"
       ],
       "social_proof": {
         "lovelybooks": {
@@ -68,6 +96,11 @@
           },
           "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Existenzlos-1096381693-w/",
           "captured_on": "2026-01-22"
+        },
+        "amazon": {
+          "stars": 3.8,
+          "ratings_count": 2399,
+          "source_url": "https://www.amazon.de/-/en/Existenzlos-May-B-Aweley/dp/149734705X"
         }
       }
     },
@@ -83,10 +116,20 @@
         "ebook_date": "2015-02-16"
       },
       "identifiers": {
-        "isbn13_print": "9783749483822"
+        "isbn13_print": "9783749483822",
+        "amazon_url": "https://www.amazon.de/-/en/Angstheiler-May-B-Aweley/dp/1508496773"
       },
       "notes": [
         "Aufgenommen in den Skoutz-Award Midlist Crime 2016."
+      ],
+      "description": "Er beobachtet seine Opfer genau. Er erschleicht sich ihr Vertrauen. Wenn sie sich am sichersten fühlen, werden ihre schlimmsten Albträume wahr ...\n\nKurz nachdem am Ufer des Hudson River die sechste Leiche aufgefunden wird, wachen die Profilerin Angel Davis und der Psychologieprofessor Robert Latton gemeinsam in einem Panikraum auf. Um zu entkommen, muss sich Angel ihrer größten Angst stellen. Ein nervenaufreibendes Katz-und-Maus-Spiel beginnt, doch die Zeit wird knapp …\n\nNach dem Erfolg von »Puppenbraut« und »Existenzlos«, die die Bestsellerliste von Amazon in kurzer Zeit gestürmt haben, ist dies das dritte Buch aus der Serie um das FBI-Team, das von Scott Goodwin geleitet wird.",
+      "description_short": "Er beobachtet seine Opfer genau.\nEr erschleicht sich ihr Vertrauen.\nWenn sie sich am sichersten fühlen, werden ihre schlimmsten Albträume wahr.\n\nUm ihrem Schicksal zu entrinnen, muss Profilerin Angel Davis sich ihrer größten Angst stellen.",
+      "readers_commentary": [
+        "Das ideale Buch für einen verregneten Tag oder als Ferienlektüre.",
+        "… ein genialer, nervenzerfetzender Thriller, der einen ziemlich lange im Dunklen lässt und der extrem Spannung aufbaut und dabei trotzdem ohne Splatter-Elemente auskommt.",
+        "Spannung von Anfang an und das bleibt bis zur letzten Seite, hat mir sehr gut gefallen.",
+        "Wer gerne spannende Thriller liest, dem kann ich dieses Buch empfehlen.",
+        "Einfach genial. Ein Muss."
       ],
       "social_proof": {
         "lovelybooks": {
@@ -101,6 +144,11 @@
           },
           "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Der-Angstheiler-1192054068-w/",
           "captured_on": "2026-01-22"
+        },
+        "amazon": {
+          "stars": 3.8,
+          "ratings_count": 1864,
+          "source_url": "https://www.amazon.de/-/en/Angstheiler-May-B-Aweley/dp/1508496773"
         }
       }
     },
@@ -117,9 +165,17 @@
       },
       "identifiers": {
         "isbn13_print": "9783749483976",
-        "isbn10_print": "3749483973"
+        "isbn10_print": "3749483973",
+        "amazon_url": "https://www.amazon.de/-/en/Lauf-Sophie-May-B-Aweley/dp/1532945663"
       },
       "notes": [],
+      "description": "Ein Psychopath. Ein Spiel. Fünf tote Mädchen.\n\nAls Sophie Pritchard ihre Wohnung verlässt, um einen Unbekannten zu treffen, ahnt sie nichts. Sie wurde zum Opfer eines grausamen Spiels auserwählt, das das FBI-Team an den Rand des Erträglichen bringt. Denn irgendwo, tief im Wald beginnt bereits die Jagd auf blutjunge Frauen.",
+      "description_short": "Ein Psychopath.\nEin Spiel.\nFünf tote Mädchen.\n\nSophie Pritchard ahnte nichts, als sie ihre Wohnung verließ, um einen Unbekannten zu treffen.",
+      "readers_commentary": [
+        "Man möchte das Buch nicht aus der Hand legen.",
+        "Die Autorin May B. Aweley nimmt uns in ihrem neuen Thriller mit in einen finsteren Wald und die Psyche eines brutalen Serienkillers. Das gelingt ihr sehr gut, denn sofort bin ich mittendrin.",
+        "Als ich es zur Probe las, fühlte ich mich wie in einer Achterbahn des Grauens: Erst merkt man, dass es langsam losgeht. Und ehe man sich versieht, schreit man sich die Seele aus dem Leib."
+      ],
       "social_proof": {
         "lovelybooks": {
           "stars": 4.2,
@@ -133,6 +189,11 @@
           },
           "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Lauf-Sophie-1237979988-w/",
           "captured_on": "2026-01-22"
+        },
+        "amazon": {
+          "stars": 3.8,
+          "ratings_count": 3340,
+          "source_url": "https://www.amazon.de/-/en/Lauf-Sophie-May-B-Aweley/dp/1532945663"
         }
       }
     },
@@ -149,11 +210,15 @@
       },
       "identifiers": {
         "amazon_asin_ebook": "B06XZS3GSK",
+        "amazon_url": "https://www.amazon.de/-/en/Erl%C3%B6se-uns-May-B-Aweley/dp/3749484449",
         "isbn13_print": "9783749484447"
       },
       "notes": [
         "Einige Listings beschreiben die Geschichte als auf wahren Ereignissen basierend; Formulierung mit Autorin vor Veröffentlichung abklären."
       ],
+      "description": "Er muss sie töten. Sie will sterben. Nur nicht auf seine Art.\n\nLucy Robinson ist fest entschlossen, sich das Leben zu nehmen, als sie plötzlich entführt wird. Ein Jahr später beginnt eine seltsame Mordserie, die die Verhaltensanalyseeinheit des FBI vor eine ihrer schwersten Aufgaben stellt: einen Täter zu ermitteln, der keine verwertbaren Spuren hinterlässt. Das Werk eines Geisteskranken? Als das New Yorker Ermittlerteam um Scott Goodwin den bizarren Zusammenhang erkennt, verschwinden wieder zwei Menschen. Und der Serienkiller ist noch nicht fertig. Noch lange nicht ...\n\nNach dem Erfolg von »Puppenbraut« und »Existenzlos«, »Der Angstheiler« und zuletzt »Lauf, Sophie«, die die Bestsellerliste von Amazon in kurzer Zeit gestürmt haben, ist dies das fünfte Buch aus der Serie um das FBI-Team, das von Scott Goodwin geleitet wird. Dieses Buch basiert auf wahren Begebenheiten.",
+      "description_short": "Er muss sie töten.\nSie will sterben.\nNur nicht auf seine Art.\n\nLucy Robinson ist fest entschlossen, sich das Leben zu nehmen, als sie plötzlich entführt wird. Ein Jahr später beginnt eine seltsame Mordserie, die die Verhaltensanalyseeinheit des FBI vor eine ihrer schwersten Aufgaben stellt.",
+      "special_selling_point": "Basiert auf wahren Begebenheiten.",
       "social_proof": {
         "lovelybooks": {
           "stars": 3.6,
@@ -167,6 +232,11 @@
           },
           "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Erl%C3%B6se-uns-1454358534-w/",
           "captured_on": "2026-01-22"
+        },
+        "amazon": {
+          "stars": 3.8,
+          "ratings_count": 854,
+          "source_url": "https://www.amazon.de/-/en/Erl%C3%B6se-uns-May-B-Aweley/dp/3749484449"
         }
       }
     },
@@ -185,11 +255,14 @@
       },
       "identifiers": {
         "amazon_asin_ebook": "B077BJK9JY",
+        "amazon_url": "https://www.amazon.de/-/en/Erinnerung-aus-Glas-May-Aweley/dp/3749485216",
         "isbn13_print": "9783749485215"
       },
       "notes": [
         "Ein Skoutz-Beitrag (Dez. 2017) bezeichnet dies zu jener Zeit als ihren 'sechsten Thriller'; Print-Neuauflage ist auf 2019 datiert."
       ],
+      "description": "Du glaubst die Wahrheit über dein Leben zu kennen? Die Wahrheit ist, dass dein Leben eine große Lüge ist.\n\nNach einem traumatisierenden Erlebnis mit ihrem Lebensgefährten Graham scheint das Schicksal es mit Anna Eliot, einer jungen Lehrerin aus North Fork, endlich gut zu meinen. Sie lernt Robert Wright kennen und heiratet ihn überstürzt. Doch plötzlich tauchen Gedächtnislücken auf, die sie sich nicht erklären kann. Nach und nach zweifelt Anna an ihrem Verstand. Der Albtraum fängt an, als ein Nachbar einzieht, der ihr von Anfang an unheimlich ist. Und dann verschwindet eines Tages ihr geliebter Hund ...\n\nNach dem Erfolg von »Puppenbraut« und »Existenzlos«, »Der Angstheiler«, »Lauf, Sophie« und zuletzt »Erlöse uns«, die die Bestsellerliste von Amazon in kurzer Zeit gestürmt haben, ist dies das sechste Buch der Autorin.",
+      "description_short": "Du glaubst die Wahrheit über dein Leben zu kennen?\nDie Wahrheit ist, dass dein Leben eine große Lüge ist.\n\nNachdem sich Anna Eliots Leben endlich zum Besseren wendet, zieht ein Nachbar ein, der ihr von Anfang an unheimlich ist.",
       "social_proof": {
         "lovelybooks": {
           "stars": 4.8,
@@ -203,6 +276,11 @@
           },
           "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Erinnerung-aus-Glas-1506884424-w/",
           "captured_on": "2026-01-22"
+        },
+        "amazon": {
+          "stars": 3.9,
+          "ratings_count": 650,
+          "source_url": "https://www.amazon.de/-/en/Erinnerung-aus-Glas-May-Aweley/dp/3749485216"
         }
       }
     },
@@ -219,12 +297,15 @@
       },
       "identifiers": {
         "amazon_asin_ebook": "B07Y2DKGN1",
+        "amazon_url": "https://www.amazon.de/-/en/May-B-Aweley-ebook/dp/B07Y2DKGN1",
         "isbn13_print": "9783749495894"
       },
       "credits": {
         "co_author": "Nora Richter"
       },
       "notes": [],
+      "description": "Sie mag alles an dir.\nAlles.\nUnd das holt sie sich.\n\n\nBerlin. Für Julia Hoffman, eine junge, aufstrebende Professorin, endet die Karriere plötzlich,\nals sie des Mordes angeklagt wird. Alle Indizien scheinen zu stimmen, doch die Erinnerung\nan jenen Tag ist verschwunden.\nMit viel Schmerz im Herzen muss Julia zusehen, wie ihr Leben mit jedem Tag immer mehr\nzum Albtraum ohne Wiederkehr wird. Doch plötzlich findet sie etwas heraus, das eine Wendung\nihres grausamen Schicksals zu sein scheint.\n\nDiese Tür hätte nie geöffnet werden dürfen ...",
+      "description_short": "Sie mag alles an dir.\nAlles.\nUnd das holt sie sich.\n\nAls die Karriere für Julia Hoffman, eine junge, aufstrebende Professorin, plötzlich aufgrund einer Mordanklage endet, muss sie Türen öffnen, die besser verschlossen geblieben wären.",
       "social_proof": {
         "lovelybooks": {
           "stars": 4.0,
@@ -241,6 +322,11 @@
           "notes": [
             "LovelyBooks author page shows a higher count for this title; prefer the book page count captured here and re-check later."
           ]
+        },
+        "amazon": {
+          "stars": 4.2,
+          "ratings_count": 1230,
+          "source_url": "https://www.amazon.de/-/en/May-B-Aweley-ebook/dp/B07Y2DKGN1"
         }
       }
     },
@@ -252,10 +338,14 @@
       "release": {
         "ebook_date": "2017-12-31"
       },
-      "identifiers": {},
+      "identifiers": {
+        "amazon_url": "https://www.amazon.de/-/en/May-B-Aweley-ebook/dp/B078WWX6WQ"
+      },
       "notes": [
         "Auf LovelyBooks als 'Kurzthriller' gelistet; erscheint auch auf BookRix."
       ],
+      "description": "Er hat dich ausgewählt.\n\nDu bist seine Beute.\n\nEine vielversprechende Reise nach New York entpuppt sich für die Autorin May als schicksalhaft.\n\nEs scheint so, als hätte sie dabei ihren Mörder gefunden ...",
+      "description_short": "Er hat dich ausgewählt.\nDu bist seine Beute.\n\nAuf einer schicksalhaften Reise nach New York scheint die Autorin May, ihren Mörder zu finden.",
       "social_proof": {
         "lovelybooks": {
           "stars": 1.8,
@@ -272,6 +362,11 @@
           "notes": [
             "This score is low; consider omitting public display of ratings for this title."
           ]
+        },
+        "amazon": {
+          "stars": 3.4,
+          "ratings_count": 297,
+          "source_url": "https://www.amazon.de/-/en/May-B-Aweley-ebook/dp/B078WWX6WQ"
         }
       }
     },
@@ -283,10 +378,14 @@
       "release": {
         "ebook_date": "2018-01-31"
       },
-      "identifiers": {},
+      "identifiers": {
+        "amazon_url": "https://www.amazon.de/-/en/May-B-Aweley-ebook/dp/B079FKD4KP"
+      },
       "notes": [
         "Auf LovelyBooks als 'Kurzthriller' gelistet."
       ],
+      "description": "Er liebt sie.\n\nSie ihn nicht.\n\nDas kostet sie das Leben.\n\nLiebe wird nur süß,\n\nwenn sie beiden schmeckt.\n\nWenn nicht - gibt es bitteres Erwachen.",
+      "description_short": "Er liebt sie.\nSie ihn nicht.\nDas kostet sie das Leben.\n\nLiebe wird nur süß, wenn sie beiden schmeckt. Wenn nicht, gibt es bitteres Erwachen.",
       "social_proof": {
         "lovelybooks": {
           "stars": 3.7,
@@ -300,12 +399,17 @@
           },
           "source_url": "https://www.lovelybooks.de/autor/May-B.-Aweley/Love-Bitter-Love-Kurzthriller-1533109331-w/",
           "captured_on": "2026-01-22"
+        },
+        "amazon": {
+          "stars": 3.5,
+          "ratings_count": 203,
+          "source_url": "https://www.amazon.de/-/en/May-B-Aweley-ebook/dp/B079FKD4KP"
         }
       }
     },
     {
       "id": "schrei_doch",
-      "title": "Schrei doch! Thriller Kurzgeschichten (Sammelband)",
+      "title": "Schrei doch! Thriller Kurzgeschichten",
       "type": "anthology",
       "credits": {
         "contributor": "May B. Aweley"
@@ -314,11 +418,21 @@
         "ebook_date": null
       },
       "identifiers": {
-        "amazon_asin_ebook": "B08545FWW4"
+        "amazon_asin_ebook": "B08545FWW4",
+        "amazon_url": "https://www.amazon.de/-/en/May-B-Aweley-ebook/dp/B07BWQWVHJ"
       },
       "notes": [
         "Anthologie-Listing weist auf viele mitwirkende Autoren hin; Beitragstitel/Abschnitt mit Herausgeber/Verlag abklären."
-      ]
+      ],
+      "description": "Jung, attraktiv, sucht …\nJung, energisch, findet …\nUnd tötet …\n\n\nDREI THRILLER IN EINEM BAND\n\n\nDrei spannende Geschichten von starken Frauen, die Eines gemeinsam haben: Irgendwann schauen sie in das Antlitz des Bösen.\n\n»Lauf, Sophie«\n\nAls Sophie Pritchard ihre Wohnung verlässt, um einen Unbekannten zu treffen, ahnt sie nichts.\nSie wurde zum Opfer eines grausamen Spiels auserwählt, das das FBI-Team an den Rand des Erträglichen bringt.\nDenn irgendwo, tief im Wald beginnt bereits die Jagd auf blutjunge Frauen.\n\n»Erlöse uns«\nLucy Robinson ist fest entschlossen, sich das Leben zu nehmen, als sie plötzlich entführt wird.\nEin Jahr später beginnt eine seltsame Mordserie, die die Verhaltensanalyseeinheit des FBI vor eine ihrer schwersten Aufgaben stellt: einen Täter zu ermitteln, der keine verwertbaren Spuren hinterlässt.\nDas Werk eines Geisteskranken?\nAls das New Yorker Ermittlerteam um Scott Goodwin den bizarren Zusammenhang erkennt, verschwinden wieder zwei Menschen.\nUnd der Serienkiller ist noch nicht fertig. Noch lange nicht …\n\n»Erinnerung aus Glas«\n\nNach einem traumatisierenden Erlebnis mit ihrem Lebensgefährten Graham scheint das Schicksal es mit Anna Eliot, einer jungen Lehrerin aus North Fork, endlich gut zu meinen. Sie lernt Robert Wright kennen und heiratet ihn überstürzt. Doch plötzlich tauchen Gedächtnislücken auf, die sie sich nicht erklären kann. Nach und nach zweifelt Anna an ihrem Verstand.\nDer Albtraum fängt an, als ein Nachbar einzieht, der ihr von Anfang an unheimlich ist.\n\nUnd dann verschwindet eines Tages ihr geliebter Hund …",
+      "description_short": "Drei spannende Geschichten von starken Frauen, die eines gemeinsam haben:\nIrgendwann schauen sie in das Antlitz des Bösen.\n\n»Lauf, Sophie« – Als Sophie Pritchard ihre Wohnung verließ, ahnte sie noch nichts von dem Spiel, zu dem sie auserwählt wurde.\n»Erlöse uns« – Lucy Robinson ist fest entschlossen, sich das Leben zu nehmen, als sie plötzlich entführt wird; woraufhin sich eine bizarre Mordserie ergibt.\n»Erinnerung aus Glas« – Nachdem sich Anna Eliots Leben endlich zum Besseren wendet, zieht ein Nachbar ein, der ihr von Anfang an unheimlich ist.",
+      "social_proof": {
+        "amazon": {
+          "stars": 4.2,
+          "ratings_count": 253,
+          "source_url": "https://www.amazon.de/-/en/May-B-Aweley-ebook/dp/B07BWQWVHJ"
+        }
+      }
     },
     {
       "id": "kurze_geschichten_zwischendurch",
@@ -331,11 +445,21 @@
         "ebook_date": null
       },
       "identifiers": {
-        "amazon_asin_ebook": "B08517WHTX"
+        "amazon_asin_ebook": "B08517WHTX",
+        "amazon_url": "https://www.amazon.de/-/en/Ilona-Bulazel-ebook/dp/B014ST38EI"
       },
       "notes": [
         "Anthologie-Listing weist auf viele mitwirkende Autoren hin; Details mit Herausgeber/Verlag abklären."
-      ]
+      ],
+      "description": "Die kostenlose Selfpublisher-Anthologie: 84 Autorinnen und Autoren stellen sich anhand aktueller Kurzgeschichten von maximal 1.000 Wörtern vor.\n\nIdeal zur Überbrückung kurzer Wartezeiten, im Bus, in der S- und U-Bahn, im Wartezimmer, in der Mittagspause ...\n\nUnterschiedliche Schreibstile und verschiedene Genres laden zum Stöbern und Schmökern ein.\n\nMit Geschichten von:\n\nPhil Humor · Melissa David · Michael Paul · K.C. Stevens · Carola Wolff · Rich Schwab · John McLane · Silvia Nagels · May B. Aweley · Karina Reiß · Bettina Kiraly · Frank Böhm · Katharina Cubin · E. Sawyer · Mike Scholz · Nessa Notedigo · Monika Baitsch · Beatrix Lohmann · Valerie le Fiery · D.C. Hubbard · Moa Graven · Sabine Schulter · Andalie Herms · L.R. Bäuml · Simon Savier · Jonas Kissel · Adelheid von Theilenberg · Markus Dittrich · G. Greschke-Begemann · Bettina Wohlert · Ilona Bulazel · Elfie Nadolny · Laura Mench · Marla Lovett · Shehera Connor · Dagmar Finger · Joachim Harksen · Maria C. Brosseit · Melanie Neubert · Sonja Rabaza · Burkhard Tomm-Bub · Nicole de Virgiliis · Martin Maier · Charlotte da Silva · Jörg Krämer · Sabine Hennig-Vogel · T. S. Bordemé · Katrin Lachmann · Tim Jöris · Birgit Otten · Peter Brentwood · Laura Gambrinus · Kirsten Harder · Klara Bellis · K.D. Hendriks · Henry D. Rottler · Ele Wolff · Angela Planert · Leo Tiresias · David May · M.P. Anderfeldt · Waltraud Lang · Katja Fischer · Robert Friedrich von Cube · Cora Buhlert · Jill J. Jenkins · Ludmilla Dümichen · Astrid Rose · Lisa Diletta · Haiko Herden · Sal Rowney · Cornelia Rückriegel · Erika Eisenlöffel · Jörg Luzius · Petra Arentzen · Sara Puland · Claudia Dahinden · Marcel Meder · Valerie Oak · Lefty E. Ria · Stefanie Droßel · Gabriele Steiniger · Stefanie Maucher · Mika M. Krüger",
+      "description_short": "84 Autorinnen und Autoren stellen sich anhand aktueller Kurzgeschichten von maximal 1.000 Wörtern vor.\n\nUnterschiedliche Schreibstile und verschiedene Genres laden zum Stöbern und Schmökern ein.",
+      "social_proof": {
+        "amazon": {
+          "stars": 3.5,
+          "ratings_count": 1425,
+          "source_url": "https://www.amazon.de/-/en/Ilona-Bulazel-ebook/dp/B014ST38EI"
+        }
+      }
     }
   ]
 }
