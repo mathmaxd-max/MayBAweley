@@ -66,6 +66,8 @@ export interface Book {
   title: string;
   type: "novel" | "short" | "anthology";
   series: BookSeries | null;
+  /** Display category (e.g. "Sammelband") for grouping on the site. */
+  category?: string;
   release: BookRelease;
   identifiers: BookIdentifiers;
   credits?: BookCredits;

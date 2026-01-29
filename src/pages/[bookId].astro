@@ -88,10 +88,11 @@ const metaDescription = book.description
           <h1 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
             {book.title}
           </h1>
-          {book.series && (
+          {(book.series || book.category) && (
             <p class="text-lg text-text/70 mb-2">
-              {book.series.name}
-              {book.series.index !== null && ` – Band ${book.series.index}`}
+              {book.series
+                ? `${book.series.name}${book.series.index !== null ? ` – Band ${book.series.index}` : ''}`
+                : book.category}
             </p>
           )}
           {releaseDate && (
@@ -159,15 +160,12 @@ const metaDescription = book.description
         </div>
       )}
       
-      {book.series && (
-        <div class="p-6 bg-neutral-light rounded-lg mb-8">
-          <h3 class="text-lg font-serif font-semibold text-primary mb-2">Reihenfolge</h3>
-          <p class="text-sm text-text/70">
-            Dieses Buch ist Teil der <strong>{book.series.name}</strong>-Reihe.
-            {book.series.index !== null && ` Es ist Band ${book.series.index} der Serie.`}
-            Die Bücher können unabhängig voneinander gelesen werden, sind aber in der Veröffentlichungsreihenfolge am besten zu genießen.
-          </p>
-        </div>
+      {(book.series || book.category) && (
+        <p class="text-sm text-text/60 mb-8">
+          {book.series
+            ? `${book.series.name}${book.series.index !== null ? `, Band ${book.series.index}` : ''}`
+            : book.category}
+        </p>
       )}
       
       <div class="border-t border-neutral-medium pt-8">

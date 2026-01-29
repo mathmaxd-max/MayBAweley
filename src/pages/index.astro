@@ -81,6 +81,7 @@ const structuredData = {
   interface Book {
     id: string;
     title: string;
+    category?: string;
     series?: {
       name: string;
       index: number | null;
@@ -152,7 +153,7 @@ const structuredData = {
     return div.innerHTML;
   }
 
-  function updateBookDetail(book: Book, scrollToDetail: boolean = false) {
+  function updateBookDetail(book: Book) {
     const container = document.getElementById('book-detail-container');
     if (!container) return;
 
@@ -177,10 +178,11 @@ const structuredData = {
           <h1 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-2">
             ${escapeHtml(book.title)}
           </h1>
-          ${book.series ? `
+          ${(book.series || book.category) ? `
             <p class="text-lg text-text/70 mb-2">
-              ${escapeHtml(book.series.name)}
-              ${book.series.index !== null ? ` – Band ${book.series.index}` : ''}
+              ${book.series
+                ? escapeHtml(book.series.name) + (book.series.index !== null ? ` – Band ${book.series.index}` : '')
+                : escapeHtml(book.category || '')}
             </p>
           ` : ''}
           ${releaseDate ? `
@@ -242,34 +244,28 @@ const structuredData = {
           </a>
         </div>
         
-        ${book.series ? `
-          <div class="mt-6 p-4 bg-neutral-light rounded-lg">
-            <p class="text-sm text-text/70">
-              <strong>Reihenfolge:</strong> Dieses Buch ist Teil der ${escapeHtml(book.series.name)}-Reihe.
-              ${book.series.index !== null ? ` Es ist Band ${book.series.index} der Serie.` : ''}
-              Die Bücher können unabhängig voneinander gelesen werden, sind aber in der Veröffentlichungsreihenfolge am besten zu genießen.
-            </p>
-          </div>
+        ${(book.series || book.category) ? `
+          <p class="mt-4 text-sm text-text/60">
+            ${book.series
+              ? escapeHtml(book.series.name) + (book.series.index !== null ? `, Band ${book.series.index}` : '')
+              : escapeHtml(book.category || '')}
+          </p>
         ` : ''}
       </div>
     `;
 
-    // Smooth scroll to book detail only if requested
-    if (scrollToDetail) {
-      container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
   }
   
   // Set up event listener immediately
-  window.addEventListener('book-selected', (event: CustomEvent<{ bookId: string; scrollToDetail?: boolean }>) => {
-    const { bookId, scrollToDetail = false } = event.detail;
+  window.addEventListener('book-selected', (event: CustomEvent<{ bookId: string }>) => {
+    const { bookId } = event.detail;
     if (!booksData || !Array.isArray(booksData)) {
       console.error('Books array not available');
       return;
     }
     const selectedBook = booksData.find((b: Book) => b.id === bookId);
     if (selectedBook) {
-      updateBookDetail(selectedBook, scrollToDetail);
+      updateBookDetail(selectedBook);
     } else {
       console.warn('Book not found:', bookId, 'Total books:', booksData.length);
     }
@@ -280,7 +276,7 @@ const structuredData = {
     if (booksData && Array.isArray(booksData) && defaultBookId) {
       const defaultBook = booksData.find((b: Book) => b.id === defaultBookId);
       if (defaultBook) {
-        window.dispatchEvent(new CustomEvent('book-selected', { detail: { bookId: defaultBookId, scrollToDetail: false } }));
+        window.dispatchEvent(new CustomEvent('book-selected', { detail: { bookId: defaultBookId } }));
       }
     }
   }, 100);

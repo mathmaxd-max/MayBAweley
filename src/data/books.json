@@ -244,10 +244,7 @@
       "id": "erinnerung_aus_glas",
       "title": "Erinnerung aus Glas",
       "type": "novel",
-      "series": {
-        "name": "Standalone / experiment (per interview)",
-        "index": null
-      },
+      "series": null,
       "release": {
         "ebook_date": "2017-11-09",
         "print_date": "2019-09-16",
@@ -288,10 +285,7 @@
       "id": "trau_ihr_nicht",
       "title": "Trau. Ihr. Nicht.",
       "type": "novel",
-      "series": {
-        "name": "Standalone",
-        "index": null
-      },
+      "series": null,
       "release": {
         "ebook_date": "2019-09-24"
       },
@@ -411,6 +405,7 @@
       "id": "schrei_doch",
       "title": "Schrei doch! Thriller Kurzgeschichten",
       "type": "anthology",
+      "category": "Sammelband",
       "credits": {
         "contributor": "May B. Aweley"
       },
@@ -438,6 +433,7 @@
       "id": "kurze_geschichten_zwischendurch",
       "title": "Kurze Geschichten für Zwischendurch",
       "type": "anthology",
+      "category": "Sammelband",
       "credits": {
         "contributor": "May B. Aweley"
       },

@@ -27,10 +27,11 @@ const oneComment = comments?.[commentIndex] ?? null;
     <h1 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-2">
       {book.title}
     </h1>
-    {book.series && (
+    {(book.series || book.category) && (
       <p class="text-lg text-text/70 mb-2">
-        {book.series.name}
-        {book.series.index !== null && ` – Band ${book.series.index}`}
+        {book.series
+          ? `${book.series.name}${book.series.index !== null ? ` – Band ${book.series.index}` : ''}`
+          : book.category}
       </p>
     )}
     {releaseDate && (
@@ -91,13 +92,11 @@ const oneComment = comments?.[commentIndex] ?? null;
     </a>
   </div>
   
-  {book.series && (
-    <div class="mt-6 p-4 bg-neutral-light rounded-lg">
-      <p class="text-sm text-text/70">
-        <strong>Reihenfolge:</strong> Dieses Buch ist Teil der {book.series.name}-Reihe.
-        {book.series.index !== null && ` Es ist Band ${book.series.index} der Serie.`}
-        Die Bücher können unabhängig voneinander gelesen werden, sind aber in der Veröffentlichungsreihenfolge am besten zu genießen.
-      </p>
-    </div>
+  {(book.series || book.category) && (
+    <p class="mt-4 text-sm text-text/60">
+      {book.series
+        ? `${book.series.name}${book.series.index !== null ? `, Band ${book.series.index}` : ''}`
+        : book.category}
+    </p>
   )}
 </div>

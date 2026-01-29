@@ -53,9 +53,9 @@ const amazonUrl = getAmazonUrl(book);
       <h3 class="text-xs md:text-sm font-serif font-semibold text-text line-clamp-2 text-center">
         {book.title}
       </h3>
-      {book.series && book.series.index !== null && (
+      {(book.category || (book.series && book.series.index !== null)) && (
         <p class="text-xs text-text/60 text-center mt-1">
-          {book.series.name} #{book.series.index}
+          {book.category ?? (book.series ? `${book.series.name} #${book.series.index}` : '')}
         </p>
       )}
     </div>
