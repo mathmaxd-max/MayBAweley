@@ -13,8 +13,9 @@ const currentPath = Astro.url.pathname;
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <div class="flex-shrink-0">
-        <a href="/" class="text-2xl font-serif font-bold text-primary hover:text-primary-dark transition-colors">
-          May B. Aweley
+        <a href="/" class="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors" aria-label="May B. Aweley – Startseite">
+          <img src="/images/Logo.png" alt="" class="h-10 w-auto" width="120" height="40" />
+          <span class="text-2xl font-serif font-bold sr-only md:not-sr-only">May B. Aweley</span>
         </a>
       </div>
       <div class="hidden md:block">

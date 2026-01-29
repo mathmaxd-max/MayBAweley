@@ -1,7 +1,6 @@
 ---
 import type { Book } from '../data/types';
 import { getCoverImagePath } from '../utils/covers';
-import { getAmazonUrl } from '../utils/amazon';
 
 interface Props {
   book: Book;
@@ -10,7 +9,7 @@ interface Props {
 
 const { book, isActive = false } = Astro.props;
 const coverPath = getCoverImagePath(book.id);
-const amazonUrl = getAmazonUrl(book);
+const bookPageUrl = `/${book.id}`;
 ---
 
 <button
@@ -34,20 +33,16 @@ const amazonUrl = getAmazonUrl(book);
         height="240"
         onerror="this.src='/images/covers/placeholder.jpg'"
       />
-      {amazonUrl && (
-        <a
-          href={amazonUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="amazon-overlay absolute inset-0 bg-primary/85 opacity-0 transition-opacity duration-200 flex items-center justify-center cursor-pointer z-10 pointer-events-none"
-          onclick={(e) => e.stopPropagation()}
-          aria-label="Bei Amazon kaufen"
-        >
-          <span class="text-text-light font-semibold text-sm md:text-base px-4 py-2 bg-primary/95 rounded-md shadow-lg backdrop-blur-sm">
-            Auf Amazon
-          </span>
-        </a>
-      )}
+      <a
+        href={bookPageUrl}
+        class="detail-overlay absolute inset-0 bg-accent/85 opacity-0 transition-opacity duration-200 flex items-center justify-center cursor-pointer z-10 pointer-events-none"
+        onclick={(e) => e.stopPropagation()}
+        aria-label="Mehr Details zu diesem Buch"
+      >
+        <span class="bg-accent text-text font-semibold text-sm md:text-base px-4 py-2 rounded-md shadow-lg">
+          Mehr Details
+        </span>
+      </a>
     </div>
     <div class="p-2">
       <h3 class="text-xs md:text-sm font-serif font-semibold text-text line-clamp-2 text-center">
@@ -64,7 +59,7 @@ const amazonUrl = getAmazonUrl(book);
 
 <style>
   /* Show overlay only on active cards when hovered */
-  .book-card[aria-pressed="true"]:hover .amazon-overlay {
+  .book-card[aria-pressed="true"]:hover .detail-overlay {
     opacity: 1;
     pointer-events: auto;
   }

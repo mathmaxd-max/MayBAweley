@@ -7,6 +7,8 @@ export interface Author {
   home_region: string;
   bio_short: string;
   notes: string[];
+  /** URLs for social profiles (e.g. Facebook, Instagram) for Kontakt and schema.org sameAs */
+  sameAs?: string[];
   as_of: string;
 }
 

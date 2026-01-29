@@ -14,5 +14,5 @@ export function getAmazonUrl(book: Book): string | null {
 }
 
 export function getAmazonLinkText(book: Book): string {
-  return 'Bei Amazon kaufen';
+  return 'Auf Amazon';
 }

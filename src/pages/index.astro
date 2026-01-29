@@ -22,7 +22,7 @@ const structuredData = {
   jobTitle: 'Autorin',
   description: author.bio_short,
   genre: author.genres,
-  sameAs: [], // Mit Social-Media-Links zu füllen
+  sameAs: author.sameAs ?? [],
 };
 ---
 
@@ -233,7 +233,7 @@ const structuredData = {
               rel="noopener noreferrer"
               class="btn-primary text-center"
             >
-              Bei Amazon kaufen
+              Auf Amazon
             </a>
           ` : ''}
           <a
